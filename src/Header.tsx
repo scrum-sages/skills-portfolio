@@ -11,7 +11,7 @@ export function Header() {
 
   return (
     <StyledHeader>
-      <HeaderWrapper>
+      <HeaderContentWrapper>
         <LogoWrapper>
           <h2>Scrum Sages</h2>
         </LogoWrapper>
@@ -21,7 +21,7 @@ export function Header() {
           <NavLink>Link</NavLink>
         </NavigationWrapper>
         <Burger $clicked={burgerClicked} onClick={handleBurgerClick} />
-      </HeaderWrapper>
+      </HeaderContentWrapper>
     </StyledHeader>
   );
 }
@@ -32,7 +32,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: center;
 `;
-const HeaderWrapper = styled.div`
+const HeaderContentWrapper = styled.div`
   max-width: 1440px;
   background: #181818;
   width: 100%;
