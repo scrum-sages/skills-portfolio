@@ -14,9 +14,15 @@ function MapContainer() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    new google.maps.Map(ref.current as HTMLElement, {
-      center: { lat: 0, lng: 0 },
-      zoom: 10,
+    const map = new google.maps.Map(ref.current as HTMLElement, {
+      center: { lat: 57.710467953735744, lng: 11.994911438107 },
+      zoom: 15,
+    });
+
+    new google.maps.Marker({
+      map: map,
+      position: { lat: 57.710467953735744, lng: 11.994911438107 },
+      title: "Medieinstitutet, Göteborg",
     });
   }, []);
 
@@ -24,6 +30,6 @@ function MapContainer() {
 }
 
 const MapInner = styled.div`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 `;
