@@ -7,6 +7,32 @@ export interface Data {
     details: string;
 }
 
+const Flex = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const Title = styled.h3`
+  text-align: center;
+`;
+
+const IconWrapper = styled.div`
+  display: inline-block;
+`;
+
+const DIVVY = styled.div`
+height: 15rem;
+width: 15rem;
+margin: 1rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+background: #A4D1AB;
+border-radius: 1rem;
+`;
+
 
 export const data: Data[] = [
     {
@@ -57,38 +83,31 @@ export const data: Data[] = [
 ]
 
 const icons: { [key: string]: JSX.Element} = {
-    IconBrandGithubFilled: <IconBrandGithubFilled />,
-    IconBrandFigma: <IconBrandFigma />,
-    IconBrandCypress: <IconBrandCypress />,
-    IconBrandTypescript: <IconBrandTypescript />,
-    IconBrandSocketIo: <IconBrandSocketIo />,
-    IconBrandMantine: <IconBrandMantine />,
-    IconBrandMongodb: <IconBrandMongodb />,
-    IconBrandAdobe: <IconBrandAdobe />,
+    IconBrandGithubFilled: <IconWrapper><IconBrandGithubFilled size={60} /></IconWrapper>,
+    IconBrandFigma: <IconWrapper><IconBrandFigma size={60} /></IconWrapper>,
+    IconBrandCypress: <IconWrapper><IconBrandCypress size={60} /></IconWrapper>,
+    IconBrandTypescript: <IconWrapper><IconBrandTypescript size={60} /></IconWrapper>,
+    IconBrandSocketIo: <IconWrapper><IconBrandSocketIo size={60} /></IconWrapper>,
+    IconBrandMantine: <IconWrapper><IconBrandMantine size={60} /></IconWrapper>,
+    IconBrandMongodb: <IconWrapper><IconBrandMongodb size={60} /></IconWrapper>,
+    IconBrandAdobe: <IconWrapper><IconBrandAdobe size={60} /></IconWrapper>,
 };
 
 
 
-const Title = styled.h3`
-  text-align: center;
-`;
 
-const DIVVY = styled.div`
-height: 20rem;
-width: 20rem;
-background: magenta;
-margin: 1rem;
-`;
 
 export default function Skills() {
     return(
         <div>
+            <Flex>
             {data.map((item, index) => (
                 <DIVVY key={index}>
                     {icons[item.icon]}
                     <Title>{item.title}</Title>
                 </DIVVY>
             ))}
+            </Flex>
         </div>
     );
 }
