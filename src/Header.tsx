@@ -2,7 +2,8 @@ import { useState } from "react";
 import styled from "styled-components";
 
 interface IconProps {
-  clicked: boolean;
+  $clicked: boolean;
+  
 }
 
 export function Header() {
@@ -14,12 +15,13 @@ export function Header() {
       <HeaderWrapper>
         <h2>Scrum Sages</h2>
         <MenuWrapper onClick={handleClick}>
-          <Icon as="span" clicked={click}></Icon>
+          <Icon $clicked={click}></Icon>
         </MenuWrapper>
       </HeaderWrapper>
     </StyledHeader>
   );
 }
+
 const StyledHeader = styled.header`
   background: red;
   height: 3rem;
@@ -46,7 +48,7 @@ const MenuWrapper = styled.div`
 const Icon = styled.span<IconProps>`
   position: absolute;
   top: 1.4rem;
-  background-color: ${(props) => (props.clicked ? "transparent" : "black")};
+  background-color: ${(props) => (props.$clicked ? "transparent" : "black")};
   width: 2rem;
   height: 2.5px;
   display: inline-block;
@@ -68,11 +70,11 @@ const Icon = styled.span<IconProps>`
     top: 0.6rem;
   }
   &::before {
-    top: ${(props) => (props.clicked ? "0" : "-0.8rem")};
-    transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
+    top: ${(props) => (props.$clicked ? "0" : "-0.8rem")};
+    transform: ${(props) => (props.$clicked ? "rotate(135deg)" : "rotate(0)")};
   }
   &::after {
-    top: ${(props) => (props.clicked ? "0" : "0.8rem")};
-    transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
+    top: ${(props) => (props.$clicked ? "0" : "0.8rem")};
+    transform: ${(props) => (props.$clicked ? "rotate(-135deg)" : "rotate(0)")};
   }
 `;
