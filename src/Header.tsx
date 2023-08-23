@@ -27,14 +27,14 @@ export function Header() {
 }
 
 const StyledHeader = styled.header`
-  background: red;
+  background: #000000;
   height: 3rem;
   display: flex;
   justify-content: center;
 `;
 const HeaderContentWrapper = styled.div`
   max-width: 1440px;
-  background: #181818;
+  background: black;
   width: 100%;
   height: 100%;
   display: flex;
