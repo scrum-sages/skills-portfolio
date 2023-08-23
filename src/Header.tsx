@@ -3,19 +3,16 @@ import styled from "styled-components";
 export function Header() {
   return (
     <StyledHeader>
-        <HeaderWrapper>
-
-        </HeaderWrapper>
+      <HeaderWrapper></HeaderWrapper>
     </StyledHeader>
   );
 }
 
 const StyledHeader = styled.header`
-background: red;
-height: 3rem;
-display: flex;
-justify-content: center;
-
+  background: red;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
 `;
 const HeaderWrapper = styled.div`
   max-width: 1440px;
