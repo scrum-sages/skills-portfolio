@@ -19,6 +19,7 @@ const Title = styled.h3`
 
 const IconWrapper = styled.div`
   display: inline-block;
+  color: #A4D1AB;
 `;
 
 const DIVVY = styled.div`
@@ -29,7 +30,7 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-background: #A4D1AB;
+border: 1px solid black;
 border-radius: 1rem;
 `;
 
