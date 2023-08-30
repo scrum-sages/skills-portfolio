@@ -5,24 +5,27 @@ export function ContactSection() {
   return (
     <Contact>
       <ContactWrapper>
-        <MapSection>
-          <h1>FIND US</h1>
-          <address>
-            <p>Medieinstitutet Gothenburg</p>
-            <p>Anders Personsgatan 18</p>
-            <p>416 64 Göteborg</p>
-          </address>
-          <MapWrapper>
-            <Map />
-          </MapWrapper>
-        </MapSection>
         <FormSection>
-          <h1>TALK TO US</h1>
-
-          <input type='text' />
-          <input type='text' />
-          <input type='text' />
-          <input type='text' />
+          <SectionHeadline>FIND US</SectionHeadline>
+          <ContactSectionWrapper>
+            <AdressWrapper>
+              <p>Medieinstitutet Gothenburg</p>
+              <p>Anders Personsgatan 18</p>
+              <p>416 64 Göteborg</p>
+            </AdressWrapper>
+            <MapWrapper>
+              <Map />
+            </MapWrapper>
+          </ContactSectionWrapper>
+        </FormSection>
+        <FormSection>
+          <SectionHeadline>TALK TO US</SectionHeadline>
+          <ContactSectionWrapper>
+            <input type='text' />
+            <input type='text' />
+            <input type='text' />
+            <input type='text' />
+          </ContactSectionWrapper>
         </FormSection>
       </ContactWrapper>
     </Contact>
@@ -53,18 +56,6 @@ const ContactWrapper = styled.div`
   }
 `;
 
-const MapSection = styled.section`
-  width: 100%;
-  height: 100%;
-  background-color: green;
-  height: 30rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  @media (min-width: 768px) {
-    height: 40rem;
-  }
-`;
 const FormSection = styled.section`
   display: flex;
   flex-direction: column;
@@ -84,5 +75,26 @@ const MapWrapper = styled.div`
   }
 `;
 
-const SectionHeadLine = styled.h2``
-`
+const SectionHeadline = styled.h2`
+  font-size: 2.2rem;
+  margin: 0.6rem 0rem;
+  background-color: #ff6600;
+  color: white;
+`;
+
+const AdressWrapper = styled.address`
+  background-color: red;
+  margin: 0;
+  p {
+    margin: 0.35rem; /* Add some spacing between each <p> element */
+    color: white; /* Change the text color for better visibility on red background */
+  }
+`;
+
+const ContactSectionWrapper = styled.div`
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`;
