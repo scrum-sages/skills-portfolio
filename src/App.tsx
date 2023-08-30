@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import "./App.css";
 import Map from "./components/Map";
-import Skills from "./Skills";
+import Skills from "./components/Skills";
 
 function App() {
   return (

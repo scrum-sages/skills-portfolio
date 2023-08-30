@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { IconBrandGithubFilled, IconBrandSocketIo, IconBrandTypescript, IconBrandFigma, IconBrandAdobe, IconBrandCypress, IconBrandMantine, IconBrandMongodb } from '@tabler/icons-react';
+import { useState, useEffect } from 'react';
 
 export interface Data {
     title: string;
@@ -13,6 +14,7 @@ const Flex = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+ // max-width: calc(15rem * 3 + 1rem * 6);
 `;
 
 const Title = styled.h3`
@@ -101,16 +103,34 @@ const icons: { [key: string]: JSX.Element} = {
 
 
 export default function Skills() {
+    const [displayData, setDisplayData] = useState<Data[]>([]);
+    const [isExpanded, setIsExpanded] = useState<boolean>(false);
+
+    // Define how many cards per row and how many rows you want to initially display
+    const cardsPerRow = 3; 
+    const initialRows = 2; 
+
+    // Set initial data
+    useEffect(() => {
+        setDisplayData(data.slice(0, cardsPerRow * initialRows));
+    }, []);
+
+    const handleExpand = () => {
+        setIsExpanded(true);
+        setDisplayData(data);
+    };
+
     return(
         <div>
             <Flex>
-            {data.map((item, index) => (
+            {displayData.map((item, index) => (
                 <DIVVY key={index}>
                     {icons[item.icon]}
                     <Title>{item.title}</Title>
                 </DIVVY>
             ))}
             </Flex>
+            {!isExpanded && <button onClick={handleExpand}>Display All</button>}
         </div>
     );
 }
