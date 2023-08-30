@@ -63,7 +63,7 @@ const FormSection = styled.section`
   height: 30rem;
   background-color: #ffd727;
   @media (min-width: 768px) {
-    height: 40rem;
+    height: 36rem;
   }
 `;
 
@@ -71,7 +71,7 @@ const MapWrapper = styled.div`
   height: 20rem;
   width: 100%;
   @media (min-width: 768px) {
-    height: 29rem;
+    height: 25rem;
   }
 `;
 
@@ -95,6 +95,10 @@ const ContactSectionWrapper = styled.div`
   background-color: pink;
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
   justify-content: space-between;
   height: 100%;
+  @media (min-width: 768px) {
+    padding-top: 2rem;
+  }
 `;
