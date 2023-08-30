@@ -8,24 +8,42 @@ export interface Data {
     details: string;
 }
 
+const Background = styled.div`
+background: #ECA579;
+`;
+
 const Flex = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  max-width: 50rem;
   margin: auto;
 `;
 
 const Title = styled.h4`
   text-align: center;
   font-weight: 400;
+  margin-top: -0.1rem;
 `;
 
 const Buttons = styled.div`
 display: flex;
 justify-content: center;
+font-weight: 600;
 `;
+
+const TransparentButton = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+`;
+
 
 const IconWrapper = styled.div`
   display: inline-block;
@@ -35,12 +53,11 @@ const IconWrapper = styled.div`
 const Card = styled.div`
 height: 10rem;
 width: 10rem;
-margin: 1rem;
+margin: 4.5rem;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-border: 1px solid black;
 `;
 
 
@@ -132,7 +149,7 @@ export default function Skills() {
 
 
     return(
-        <div>
+        <Background>
             <Flex>
             {displayData.map((item, index) => (
                 <Card key={index}>
@@ -143,10 +160,10 @@ export default function Skills() {
             </Flex>
             <Buttons>
             {isExpanded ? 
-            <button onClick={handleDisplayLess}>Close <IconChevronUp /></button> : 
-            <button onClick={handleExpand}>See the complete list <IconChevronDown /></button>
+            <TransparentButton onClick={handleDisplayLess}>Close <IconChevronUp /></TransparentButton> : 
+            <TransparentButton onClick={handleExpand}>See the complete list <IconChevronDown /></TransparentButton>
             }
             </Buttons>
-        </div>
+        </Background>
     );
 }
