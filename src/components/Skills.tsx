@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IconBrandGithubFilled, IconBrandSocketIo, IconBrandTypescript, IconBrandFigma, IconBrandAdobe, IconBrandCypress, IconBrandMantine, IconBrandMongodb } from '@tabler/icons-react';
+import { IconBrandGithubFilled, IconBrandSocketIo, IconChevronUp, IconChevronDown, IconBrandTypescript, IconBrandFigma, IconBrandAdobe, IconBrandCypress, IconBrandMantine, IconBrandMongodb } from '@tabler/icons-react';
 import { useState, useEffect } from 'react';
 
 export interface Data {
@@ -12,30 +12,35 @@ const Flex = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
- // max-width: calc(15rem * 3 + 1rem * 6);
+  justify-content: space-evenly;
+  max-width: 50rem;
+  margin: auto;
 `;
 
-const Title = styled.h3`
+const Title = styled.h4`
   text-align: center;
+  font-weight: 400;
+`;
+
+const Buttons = styled.div`
+display: flex;
+justify-content: center;
 `;
 
 const IconWrapper = styled.div`
   display: inline-block;
-  color: #A4D1AB;
+  margin-top: 2rem;
 `;
 
-const DIVVY = styled.div`
-height: 15rem;
-width: 15rem;
+const Card = styled.div`
+height: 10rem;
+width: 10rem;
 margin: 1rem;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 border: 1px solid black;
-border-radius: 1rem;
 `;
 
 
@@ -88,14 +93,14 @@ export const data: Data[] = [
 ]
 
 const icons: { [key: string]: JSX.Element} = {
-    IconBrandGithubFilled: <IconWrapper><IconBrandGithubFilled size={60} /></IconWrapper>,
-    IconBrandFigma: <IconWrapper><IconBrandFigma size={60} /></IconWrapper>,
-    IconBrandCypress: <IconWrapper><IconBrandCypress size={60} /></IconWrapper>,
-    IconBrandTypescript: <IconWrapper><IconBrandTypescript size={60} /></IconWrapper>,
-    IconBrandSocketIo: <IconWrapper><IconBrandSocketIo size={60} /></IconWrapper>,
-    IconBrandMantine: <IconWrapper><IconBrandMantine size={60} /></IconWrapper>,
-    IconBrandMongodb: <IconWrapper><IconBrandMongodb size={60} /></IconWrapper>,
-    IconBrandAdobe: <IconWrapper><IconBrandAdobe size={60} /></IconWrapper>,
+    IconBrandGithubFilled: <IconWrapper><IconBrandGithubFilled size={80} /></IconWrapper>,
+    IconBrandFigma: <IconWrapper><IconBrandFigma size={80} /></IconWrapper>,
+    IconBrandCypress: <IconWrapper><IconBrandCypress size={80} /></IconWrapper>,
+    IconBrandTypescript: <IconWrapper><IconBrandTypescript size={80} /></IconWrapper>,
+    IconBrandSocketIo: <IconWrapper><IconBrandSocketIo size={80} /></IconWrapper>,
+    IconBrandMantine: <IconWrapper><IconBrandMantine size={80} /></IconWrapper>,
+    IconBrandMongodb: <IconWrapper><IconBrandMongodb size={80} /></IconWrapper>,
+    IconBrandAdobe: <IconWrapper><IconBrandAdobe size={80} /></IconWrapper>,
 };
 
 
@@ -107,7 +112,7 @@ export default function Skills() {
     const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
     // Define how many cards per row and how many rows you want to initially display
-    const cardsPerRow = 3; 
+    const cardsPerRow = 4; 
     const initialRows = 2; 
 
     const handleDisplayLess = () => {
@@ -130,16 +135,18 @@ export default function Skills() {
         <div>
             <Flex>
             {displayData.map((item, index) => (
-                <DIVVY key={index}>
+                <Card key={index}>
                     {icons[item.icon]}
                     <Title>{item.title}</Title>
-                </DIVVY>
+                </Card>
             ))}
             </Flex>
+            <Buttons>
             {isExpanded ? 
-            <button onClick={handleDisplayLess}>Display Less</button> : 
-            <button onClick={handleExpand}>Display All</button>
+            <button onClick={handleDisplayLess}>Close <IconChevronUp /></button> : 
+            <button onClick={handleExpand}>See the complete list <IconChevronDown /></button>
             }
+            </Buttons>
         </div>
     );
 }
