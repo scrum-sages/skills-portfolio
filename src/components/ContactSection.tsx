@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Map from './Map';
+import InputField from './inputField';
 
 export function ContactSection() {
   return (
@@ -21,16 +22,24 @@ export function ContactSection() {
         <FormSection>
           <SectionHeadline>TALK TO US</SectionHeadline>
           <ContactSectionWrapper>
-            <input type='text' />
-            <input type='text' />
-            <input type='text' />
-            <input type='text' />
+            <div>
+              <InputField label='Your name:' type='text' />
+              <InputField label='Your email:' type='text' />
+              <InputField label='Dropdown' type='text' />
+              <InputField label='Your message here:' type='text' />
+            </div>
+            <Button>SEND</Button>
           </ContactSectionWrapper>
         </FormSection>
       </ContactWrapper>
     </Contact>
   );
 }
+const Button = styled.button`
+  color: white;
+  background-color: #003817;
+  padding: 0.6rem;
+`;
 
 const Contact = styled.section`
   margin-top: 3rem;
