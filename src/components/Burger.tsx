@@ -1,14 +1,17 @@
-import styled from "styled-components";
+import styled from 'styled-components';
+import { headerTextColor } from './data';
 
 interface BurgerProps {
   $clicked: boolean;
   onClick: () => void;
+  color: string;
 }
 
 export function Burger({ $clicked, onClick }: BurgerProps) {
+  const color = headerTextColor;
   return (
     <BurgerWrapper onClick={onClick}>
-      <StyledBurger $clicked={$clicked} />
+      <StyledBurger $clicked={$clicked} color={color} />
     </BurgerWrapper>
   );
 }
@@ -28,7 +31,7 @@ const StyledBurger = styled.span<{ $clicked: boolean }>`
   position: absolute;
   border-radius: 1rem;
   top: 1.4rem;
-  background-color: ${(props) => (props.$clicked ? "transparent" : "white")};
+  background-color: ${props => (props.$clicked ? 'transparent' : props.color)};
   width: 1.7rem;
   height: 3px;
   display: inline-block;
@@ -36,8 +39,8 @@ const StyledBurger = styled.span<{ $clicked: boolean }>`
 
   &::before,
   &::after {
-    content: "";
-    background-color: #ffffff;
+    content: '';
+    background-color: ${props => props.color};
     border-radius: 1rem;
     width: 1.7rem;
     height: 3px;
@@ -53,13 +56,13 @@ const StyledBurger = styled.span<{ $clicked: boolean }>`
     top: 0.6rem;
   }
   &::before {
-    height: ${(props) => (props.$clicked ? "4px" : "3px")};
-    top: ${(props) => (props.$clicked ? "0" : "-0.6rem")};
-    transform: ${(props) => (props.$clicked ? "rotate(135deg)" : "rotate(0)")};
+    height: ${props => (props.$clicked ? '4px' : '3px')};
+    top: ${props => (props.$clicked ? '0' : '-0.6rem')};
+    transform: ${props => (props.$clicked ? 'rotate(135deg)' : 'rotate(0)')};
   }
   &::after {
-    height: ${(props) => (props.$clicked ? "4px" : "3px")};
-    top: ${(props) => (props.$clicked ? "0" : "0.6rem")};
-    transform: ${(props) => (props.$clicked ? "rotate(-135deg)" : "rotate(0)")};
+    height: ${props => (props.$clicked ? '4px' : '3px')};
+    top: ${props => (props.$clicked ? '0' : '0.6rem')};
+    transform: ${props => (props.$clicked ? 'rotate(-135deg)' : 'rotate(0)')};
   }
 `;

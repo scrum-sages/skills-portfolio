@@ -1,5 +1,5 @@
 import './App.css';
-import { Header } from './Header';
+import { Header } from './components/Header';
 import styled from 'styled-components';
 import './App.css';
 import Map from './components/Map';
