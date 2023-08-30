@@ -1,10 +1,13 @@
+import styled from "styled-components";
 import "./App.css";
-import Skills from "./Skills";
+import Map from "./components/Map";
 
 function App() {
   return (
     <>
-      <Skills />
+      <MapWrapper>
+        <Map />
+      </MapWrapper>
     </>
   );
 }
