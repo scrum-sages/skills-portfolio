@@ -1,14 +1,9 @@
 import styled from 'styled-components';
 
-interface InputFieldProps {
-  label: string;
-  type: string;
-}
-
 const InputFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 10px 0px;
 `;
 
 const InputLabel = styled.label`
@@ -24,11 +19,42 @@ const InputElement = styled.input`
   padding: 5px;
 `;
 
-function InputField({ label, ...rest }: InputFieldProps) {
+const TextAreaElement = styled.textarea`
+  border: none;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  resize: none;
+  width: 100% !important;
+  height: 8rem !important;
+  @media (min-width: 768px) {
+    height: 13rem !important;
+  }
+`;
+
+interface InputFieldProps {
+  label: string;
+  type: string;
+  rows?: number;
+  // Other shared props can be included here
+}
+
+function InputField({ label, type, ...rest }: InputFieldProps) {
+  const sharedProps = { ...rest };
+  if (type === 'textarea') {
+    const { rows, ...textareaProps } = sharedProps;
+    return (
+      <InputFieldWrapper>
+        <InputLabel>{label}</InputLabel>
+        <TextAreaElement rows={rows} {...textareaProps} />
+      </InputFieldWrapper>
+    );
+  }
   return (
     <InputFieldWrapper>
       <InputLabel>{label}</InputLabel>
-      <InputElement {...rest} />
+      <InputElement type={type} {...sharedProps} />
     </InputFieldWrapper>
   );
 }

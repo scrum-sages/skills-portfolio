@@ -22,12 +22,12 @@ export function ContactSection() {
         <FormSection>
           <SectionHeadline>TALK TO US</SectionHeadline>
           <ContactSectionWrapper>
-            <div>
+            <InputContainer>
               <InputField label='Your name:' type='text' />
               <InputField label='Your email:' type='text' />
               <InputField label='Dropdown' type='text' />
-              <InputField label='Your message here:' type='text' />
-            </div>
+              <InputField label='Your message here:' type='textarea' rows={4} />
+            </InputContainer>
             <Button>SEND</Button>
           </ContactSectionWrapper>
         </FormSection>
@@ -35,10 +35,16 @@ export function ContactSection() {
     </Contact>
   );
 }
+
+const InputContainer = styled.div`
+  padding: 0 0.2rem;
+`;
+
 const Button = styled.button`
-  color: white;
-  background-color: #003817;
+  color: black;
+  background-color: #eca579;
   padding: 0.6rem;
+  border: none;
 `;
 
 const Contact = styled.section`
@@ -46,11 +52,10 @@ const Contact = styled.section`
   height: auto;
   width: 100%;
   display: flex;
-  background: red;
+  background: black;
   justify-content: center;
 `;
 const ContactWrapper = styled.div`
-  background: blue;
   max-width: 1440px;
   display: flex;
   flex-direction: column;
@@ -70,14 +75,14 @@ const FormSection = styled.section`
   flex-direction: column;
   width: 100%;
   height: 30rem;
-  background-color: #ffd727;
+
   @media (min-width: 768px) {
     height: 36rem;
   }
 `;
 
 const MapWrapper = styled.div`
-  height: 20rem;
+  height: 18rem;
   width: 100%;
   @media (min-width: 768px) {
     height: 25rem;
@@ -87,21 +92,18 @@ const MapWrapper = styled.div`
 const SectionHeadline = styled.h2`
   font-size: 2.2rem;
   margin: 0.6rem 0rem;
-  background-color: #ff6600;
   color: white;
 `;
 
 const AdressWrapper = styled.address`
-  background-color: red;
   margin: 0;
   p {
-    margin: 0.35rem; /* Add some spacing between each <p> element */
-    color: white; /* Change the text color for better visibility on red background */
+    margin: 0.35rem;
+    color: white;
   }
 `;
 
 const ContactSectionWrapper = styled.div`
-  background-color: pink;
   display: flex;
   flex-direction: column;
   padding-top: 1rem;

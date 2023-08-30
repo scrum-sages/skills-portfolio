@@ -1,5 +1,6 @@
 *, ::after, *::before {
   box-sizing: border-box;
+  font-family: 'IBM Plex Sans', sans-serif;
 }
 
 body {
