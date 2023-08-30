@@ -40,13 +40,13 @@ const Flex = styled.div`
 const Title = styled.h4`
   text-align: center;
   font-weight: 400;
-  margin-top: -0.1rem;
 `;
 
 const Buttons = styled.div`
   display: flex;
   justify-content: center;
   font-weight: 600;
+  padding-bottom: 1rem;
 `;
 
 const TransparentButton = styled.button`
