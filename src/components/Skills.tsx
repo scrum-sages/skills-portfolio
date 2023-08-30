@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IconBrandGithubFilled, IconBrandSocketIo, IconChevronUp, IconChevronDown, IconBrandTypescript, IconBrandFigma, IconBrandAdobe, IconBrandCypress, IconBrandMantine, IconBrandMongodb } from '@tabler/icons-react';
+import { IconBrandGithub, IconBrandVscode, IconBrandCss3, IconBrandHtml5, IconBrandJavascript, IconBrandSocketIo, IconChevronUp, IconChevronDown, IconBrandTypescript, IconBrandFigma, IconBrandAdobe, IconBrandCypress, IconBrandMantine, IconBrandMongodb } from '@tabler/icons-react';
 import { useState, useEffect } from 'react';
 
 export interface Data {
@@ -10,6 +10,8 @@ export interface Data {
 
 const Background = styled.div`
 background: #ECA579;
+max-width: 1440px;
+width: 100%;
 `;
 
 const Flex = styled.div`
@@ -58,13 +60,37 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
+
+@media (max-width: 768px) {
+    margin: 1rem;
+  }
 `;
 
 
 export const data: Data[] = [
     {
+        title: "HTML",
+        icon: "IconBrandHtml5",
+        details: "HTML.",
+    },
+    {
+        title: "CSS",
+        icon: "IconBrandCss3",
+        details: "CSS.",
+    },
+    {
+        title: "JavaScript",
+        icon: "IconBrandJavascript",
+        details: "JavaScript.",
+    },
+    {
+        title: "TypeScript",
+        icon: "IconBrandTypescript",
+        details: "TypeScript has been used in several bigger projects, such as e-commerce sites.",
+    },
+    {
         title: "GitHub",
-        icon: "IconBrandGithubFilled",
+        icon: "IconBrandGithub",
         details: "We have used GitHub to work on group projects.",
     },
     {
@@ -78,19 +104,9 @@ export const data: Data[] = [
         details: "Cypress has been used for testing our front end web applications.",
     },
     {
-        title: "TypeScript",
-        icon: "IconBrandTypescript",
-        details: "TypeScript has been used in several bigger projects, such as e-commerce sites.",
-    },
-    {
         title: "Socket.io",
         icon: "IconBrandSocketIo",
         details: "Used to build a chat application for the web.",
-    },
-    {
-        title: "Mantine UI",
-        icon: "IconBrandMantine",
-        details: "Design system used in e-commerce and chat app projects.",
     },
     {
         title: "MongoDB",
@@ -98,19 +114,25 @@ export const data: Data[] = [
         details: "Database hosting for e-commerce site, chat app and twitter copy. Hosts user info like username, encrypted password, posts or products as well as additional metadata associated with these.",
     },
     {
+        title: "Mantine UI",
+        icon: "IconBrandMantine",
+        details: "Design system used in e-commerce and chat app projects.",
+    },
+    {
+        title: "VS Code",
+        icon: "IconBrandVscode",
+        details: "Vs Code ",
+    },
+    {
         title: "Adobe Suite",
         icon: "IconBrandAdobe",
         details: "Illustrator, Photoshop and InDesign were used to create graphic profiles and wireframes as well as mock ups of logos on products.",
     },
-    {
-        title: "TEST",
-        icon: "IconBrandCypress",
-        details: "testtesttest test teeeeeeest.",
-    },
+
 ]
 
 const icons: { [key: string]: JSX.Element} = {
-    IconBrandGithubFilled: <IconWrapper><IconBrandGithubFilled size={80} /></IconWrapper>,
+    IconBrandGithub: <IconWrapper><IconBrandGithub size={80} /></IconWrapper>,
     IconBrandFigma: <IconWrapper><IconBrandFigma size={80} /></IconWrapper>,
     IconBrandCypress: <IconWrapper><IconBrandCypress size={80} /></IconWrapper>,
     IconBrandTypescript: <IconWrapper><IconBrandTypescript size={80} /></IconWrapper>,
@@ -118,6 +140,10 @@ const icons: { [key: string]: JSX.Element} = {
     IconBrandMantine: <IconWrapper><IconBrandMantine size={80} /></IconWrapper>,
     IconBrandMongodb: <IconWrapper><IconBrandMongodb size={80} /></IconWrapper>,
     IconBrandAdobe: <IconWrapper><IconBrandAdobe size={80} /></IconWrapper>,
+    IconBrandJavascript: <IconWrapper><IconBrandJavascript size={80} /></IconWrapper>,
+    IconBrandHtml5: <IconWrapper><IconBrandHtml5 size={80} /></IconWrapper>,
+    IconBrandCss3: <IconWrapper><IconBrandCss3 size={80} /></IconWrapper>,
+    IconBrandVscode: <IconWrapper><IconBrandVscode size={80} /></IconWrapper>
 };
 
 
