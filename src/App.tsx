@@ -1,13 +1,18 @@
-import styled from "styled-components";
-import "./App.css";
-import Map from "./components/Map";
+import './App.css';
+import { Header } from './components/Header';
+import styled from 'styled-components';
+import './App.css';
+import Map from './components/Map';
 
 function App() {
   return (
     <>
-      <MapWrapper>
-        <Map />
-      </MapWrapper>
+      <div>
+        <Header></Header>
+        <MapWrapper>
+          <Map />
+        </MapWrapper>
+      </div>
     </>
   );
 }
