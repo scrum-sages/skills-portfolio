@@ -110,15 +110,21 @@ export default function Skills() {
     const cardsPerRow = 3; 
     const initialRows = 2; 
 
-    // Set initial data
-    useEffect(() => {
+    const handleDisplayLess = () => {
+        setIsExpanded(false);
         setDisplayData(data.slice(0, cardsPerRow * initialRows));
-    }, []);
+    };
 
     const handleExpand = () => {
         setIsExpanded(true);
         setDisplayData(data);
     };
+
+    useEffect(() => {
+        setDisplayData(data.slice(0, cardsPerRow * initialRows));
+    }, []);
+
+
 
     return(
         <div>
@@ -130,7 +136,10 @@ export default function Skills() {
                 </DIVVY>
             ))}
             </Flex>
-            {!isExpanded && <button onClick={handleExpand}>Display All</button>}
+            {isExpanded ? 
+            <button onClick={handleDisplayLess}>Display Less</button> : 
+            <button onClick={handleExpand}>Display All</button>
+            }
         </div>
     );
 }
