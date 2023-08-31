@@ -9,11 +9,10 @@ function App() {
   return (
     <>
       <Header></Header>
+      <Team />
       <Skills></Skills>
       <ContactSection></ContactSection>
       <Header />
-      <Team />
-      <Skills />
     </>
   );
 }
