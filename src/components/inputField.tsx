@@ -19,6 +19,14 @@ const InputElement = styled.input`
   padding: 5px;
 `;
 
+const DropdownElement = styled.select`
+  border: none;
+  border-bottom: 1px solid white;
+  background-color: #000000;
+  color: white;
+  padding: 5px;
+`;
+
 const TextAreaElement = styled.textarea`
   border: none;
   border: 1px solid white;
@@ -35,26 +43,28 @@ const TextAreaElement = styled.textarea`
 
 interface InputFieldProps {
   label: string;
-  type: string;
+  type: 'text' | 'textarea' | 'dropdown'; // Define the possible types
   rows?: number;
-  // Other shared props can be included here
+  options?: string[];
 }
 
-function InputField({ label, type, ...rest }: InputFieldProps) {
+function InputField({ label, type, options, ...rest }: InputFieldProps) {
   const sharedProps = { ...rest };
-  if (type === 'textarea') {
-    const { rows, ...textareaProps } = sharedProps;
-    return (
-      <InputFieldWrapper>
-        <InputLabel>{label}</InputLabel>
-        <TextAreaElement rows={rows} {...textareaProps} />
-      </InputFieldWrapper>
-    );
-  }
+
   return (
     <InputFieldWrapper>
       <InputLabel>{label}</InputLabel>
-      <InputElement type={type} {...sharedProps} />
+      {type === 'textarea' && <TextAreaElement {...sharedProps} />}
+      {type === 'dropdown' && (
+        <DropdownElement {...sharedProps}>
+          {options?.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </DropdownElement>
+      )}
+      {type === 'text' && <InputElement type='text' {...sharedProps} />}
     </InputFieldWrapper>
   );
 }

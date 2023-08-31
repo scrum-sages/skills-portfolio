@@ -25,7 +25,11 @@ export function ContactSection() {
             <InputContainer>
               <InputField label='Your name:' type='text' />
               <InputField label='Your email:' type='text' />
-              <InputField label='Dropdown' type='text' />
+              <InputField
+                label='I want to contact:'
+                type='dropdown'
+                options={['Option 1', 'Option 2', 'Option 3']}
+              />
               <InputField label='Your message here:' type='textarea' rows={4} />
             </InputContainer>
             <Button>SEND</Button>
