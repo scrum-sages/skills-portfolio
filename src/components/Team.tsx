@@ -25,8 +25,8 @@ function Team() {
           </ImageBox>
           <Heading>Caisa Köhlin</Heading>
           <BasicText>
-            Years of working with so and so and a specialty in so and so this team member loves so
-            and so and is a vital member of our blah blah.
+            Caisa is a dynamic front-end developer committed to blending cutting-edge design with
+            seamless functionality.
           </BasicText>
           <MonoText>Frontend developer</MonoText>
           <MonoText>caisa@sage.com</MonoText>
@@ -38,8 +38,8 @@ function Team() {
           </ImageBox>
           <Heading>Nathanael Blackbourn</Heading>
           <BasicText>
-            Years of working with so and so and a specialty in so and so this team member loves so
-            and so and is a vital member of our blah blah.
+            Medium between man and machine, in his work Nathanael enriches the human experience and
+            deepens our connection with technology.
           </BasicText>
           <MonoText>Frontend developer</MonoText>
           <MonoText>nathanael@sage.com</MonoText>
@@ -51,8 +51,8 @@ function Team() {
           </ImageBox>
           <Heading>Mimmi Collin</Heading>
           <BasicText>
-            Years of working with so and so and a specialty in so and so this team member loves so
-            and so and is a vital member of our blah blah.
+            Mimmi - a passionate artist, programmer, writer, and creator. She specializes in
+            crafting stunning websites and captivating games.
           </BasicText>
           <MonoText>Frontend developer</MonoText>
           <MonoText>mimmi@sage.com</MonoText>
@@ -95,7 +95,7 @@ const TeamMemberBox = styled.div`
   flex-direction: column;
   align-items: right;
   @media (max-width: 768px) {
-    padding: 0 1rem 0 1rem;
+    padding: 0 1rem 2rem 1rem;
   }
   &:hover ${ImageCircle} {
     background-color: #eca579;
