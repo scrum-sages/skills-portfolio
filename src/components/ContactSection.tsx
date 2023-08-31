@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+import Address from './Address';
+import Button from './Button';
 import Map from './Map';
+import { SectionHeadline } from './SectionHeadline';
 import InputField from './inputField';
 
 export function ContactSection() {
@@ -7,20 +10,16 @@ export function ContactSection() {
     <Contact>
       <ContactWrapper>
         <FormSection>
-          <SectionHeadline>FIND US</SectionHeadline>
+          <SectionHeadline $color='white' title='FIND US'></SectionHeadline>
           <ContactSectionWrapper>
-            <AdressWrapper>
-              <p>Medieinstitutet Gothenburg</p>
-              <p>Anders Personsgatan 18</p>
-              <p>416 64 Göteborg</p>
-            </AdressWrapper>
+            <Address></Address>
             <MapWrapper>
               <Map />
             </MapWrapper>
           </ContactSectionWrapper>
         </FormSection>
         <FormSection>
-          <SectionHeadline>TALK TO US</SectionHeadline>
+          <SectionHeadline $color='white' title='TALK TO US'></SectionHeadline>
           <ContactSectionWrapper>
             <InputContainer>
               <InputField label='Your name:' type='text' />
@@ -32,7 +31,7 @@ export function ContactSection() {
               />
               <InputField label='Your message here:' type='textarea' rows={4} />
             </InputContainer>
-            <Button>SEND</Button>
+            <Button text='SEND' width='100%' color='black' backgroundColor='#eca579' />
           </ContactSectionWrapper>
         </FormSection>
       </ContactWrapper>
@@ -42,13 +41,6 @@ export function ContactSection() {
 
 const InputContainer = styled.div`
   padding: 0 0.2rem;
-`;
-
-const Button = styled.button`
-  color: black;
-  background-color: #eca579;
-  padding: 0.6rem;
-  border: none;
 `;
 
 const Contact = styled.section`
@@ -90,20 +82,6 @@ const MapWrapper = styled.div`
   width: 100%;
   @media (min-width: 768px) {
     height: 25rem;
-  }
-`;
-
-const SectionHeadline = styled.h2`
-  font-size: 2.2rem;
-  margin: 0.6rem 0rem;
-  color: white;
-`;
-
-const AdressWrapper = styled.address`
-  margin: 0;
-  p {
-    margin: 0.35rem;
-    color: white;
   }
 `;
 

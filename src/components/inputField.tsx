@@ -1,5 +1,32 @@
 import styled from 'styled-components';
 
+interface InputFieldProps {
+  label: string;
+  type: 'text' | 'textarea' | 'dropdown'; // Define the possible types
+  rows?: number;
+  options?: string[];
+}
+
+function InputField({ label, type, options, ...rest }: InputFieldProps) {
+  const sharedProps = { ...rest };
+
+  return (
+    <InputFieldWrapper>
+      <InputLabel>{label}</InputLabel>
+      {type === 'textarea' && <TextAreaElement {...sharedProps} />}
+      {type === 'dropdown' && (
+        <DropdownElement {...sharedProps}>
+          {options?.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </DropdownElement>
+      )}
+      {type === 'text' && <InputElement type='text' {...sharedProps} />}
+    </InputFieldWrapper>
+  );
+}
 const InputFieldWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -40,33 +67,5 @@ const TextAreaElement = styled.textarea`
     height: 13rem !important;
   }
 `;
-
-interface InputFieldProps {
-  label: string;
-  type: 'text' | 'textarea' | 'dropdown'; // Define the possible types
-  rows?: number;
-  options?: string[];
-}
-
-function InputField({ label, type, options, ...rest }: InputFieldProps) {
-  const sharedProps = { ...rest };
-
-  return (
-    <InputFieldWrapper>
-      <InputLabel>{label}</InputLabel>
-      {type === 'textarea' && <TextAreaElement {...sharedProps} />}
-      {type === 'dropdown' && (
-        <DropdownElement {...sharedProps}>
-          {options?.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
-            </option>
-          ))}
-        </DropdownElement>
-      )}
-      {type === 'text' && <InputElement type='text' {...sharedProps} />}
-    </InputFieldWrapper>
-  );
-}
 
 export default InputField;

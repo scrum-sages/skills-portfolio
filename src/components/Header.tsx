@@ -7,7 +7,7 @@ import { headerLinks, headerTextColor } from './data';
 
 interface StyledHeaderProps {
   $expanded: boolean;
-  background: string;
+  $background: string;
 }
 
 export function Header() {
@@ -33,7 +33,7 @@ export function Header() {
   }, []);
 
   return (
-    <StyledHeader $expanded={burgerClicked} background={background}>
+    <StyledHeader $expanded={burgerClicked} $background={background}>
       <HeaderContentWrapper>
         <HeaderLogo />
         <HeaderNavigationWrapper>
@@ -43,7 +43,7 @@ export function Header() {
         </HeaderNavigationWrapper>
         <Burger $clicked={burgerClicked} onClick={handleBurgerClick} color={headerTextColor} />
       </HeaderContentWrapper>
-      <Drawer $expanded={burgerClicked} background={background}>
+      <Drawer $expanded={burgerClicked} $background={background}>
         {
           <DrawerLinks onClick={handleBurgerClick}>
             {headerLinks.map((link, index) => (
@@ -62,7 +62,7 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   left: 0;
   right: 0;
   position: fixed;
-  background: ${props => props.background};
+  background: ${props => props.$background};
   height: ${props => (props.$expanded ? '20rem' : '3rem')};
   display: flex;
   align-items: center;
@@ -97,7 +97,7 @@ const HeaderNavigationWrapper = styled.nav`
 
 const Drawer = styled.div<StyledHeaderProps>`
   height: ${props => (props.$expanded ? '20rem' : '0')};
-  background: ${props => props.background};
+  background: ${props => props.$background};
   width: 100%;
   overflow: hidden;
   transition: height 0.3s ease-in-out;

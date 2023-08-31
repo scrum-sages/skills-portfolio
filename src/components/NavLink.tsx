@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface Link {
-  link: string;
+  $link: string;
   color: string;
 }
 
@@ -11,10 +11,10 @@ const StyledNavLink = styled.span<Link>`
   font-weight: 500;
 `;
 
-export function NavLink({ link, color }: Link) {
+export function NavLink({ $link, color }: Link) {
   return (
-    <StyledNavLink color={color} link={link}>
-      {link}
+    <StyledNavLink color={color} $link={$link}>
+      {$link}
     </StyledNavLink>
   );
 }
