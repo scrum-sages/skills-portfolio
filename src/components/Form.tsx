@@ -1,9 +1,21 @@
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import styled from 'styled-components';
 import * as Yup from 'yup';
 import Button from './Button';
 
+interface FormValues {
+  name: string;
+  email: string;
+  contactPerson: string;
+  message: string;
+}
+
 export function ContactForm() {
+  const handleSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
+    // Handle your form submission logic here
+    console.log(values);
+    resetForm();
+  };
   return (
     <Formik
       initialValues={{
@@ -18,9 +30,7 @@ export function ContactForm() {
         contactPerson: Yup.string().required('* Contact person is required'),
         message: Yup.string().required('* A message required'),
       })}
-      onSubmit={values => {
-        alert(JSON.stringify(values, null, 2));
-      }}
+      onSubmit={handleSubmit}
     >
       <Form>
         <InputFieldWrapper>
@@ -44,9 +54,10 @@ export function ContactForm() {
           </InputLabel>
           <Field as={DropdownElement} id='contactPerson' name='contactPerson'>
             <option value='' label='Select a contact person' />
-            <option value='person1' label='Person 1' />
-            <option value='person2' label='Person 2' />
-            <option value='person3' label='Person 3' />
+            <option value='Jennifer Techel' label='Jennifer Techel' />
+            <option value='Caisa Köhlin' label='Caisa Köhlin' />
+            <option value='Nathanael Blackbourn' label='Nathanael Blackbourn' />
+            <option value='Mimmi Collin' label='Mimmi Collin' />
           </Field>
         </InputFieldWrapper>
         <InputFieldWrapper>

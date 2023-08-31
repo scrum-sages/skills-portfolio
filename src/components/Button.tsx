@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ButtonProps {
-  type?: string;
+  type: string;
   text: string;
   width?: string;
   color?: string;
@@ -27,6 +27,7 @@ const StyledButton = styled.button<ButtonProps>`
 function Button(props: ButtonProps) {
   return (
     <StyledButton
+      type={props.type}
       text={props.text}
       color={props.color}
       width={props.width}
