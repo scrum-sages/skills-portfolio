@@ -51,7 +51,11 @@ const DropdownElement = styled.select`
   border-bottom: 1px solid white;
   background-color: #000000;
   color: white;
+  margin-bottom: 3px;
   padding: 5px;
+  @media (min-width: 768px) {
+    margin-bottom: 0px;
+  }
 `;
 
 const TextAreaElement = styled.textarea`

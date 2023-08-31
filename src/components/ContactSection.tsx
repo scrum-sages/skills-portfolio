@@ -9,7 +9,7 @@ export function ContactSection() {
   return (
     <Contact>
       <ContactWrapper>
-        <FormSection>
+        <ContactBoxSection>
           <SectionHeadline $color='white' title='FIND US'></SectionHeadline>
           <ContactSectionWrapper>
             <Address></Address>
@@ -17,31 +17,32 @@ export function ContactSection() {
               <Map />
             </MapWrapper>
           </ContactSectionWrapper>
-        </FormSection>
-        <FormSection>
+        </ContactBoxSection>
+        <ContactBoxSection>
           <SectionHeadline $color='white' title='TALK TO US'></SectionHeadline>
           <ContactSectionWrapper>
             <InputContainer>
               <InputField label='Your name:' type='text' />
               <InputField label='Your email:' type='text' />
               <InputField
-                label='I want to contact:'
+                label='Which of us would you like to speak to?'
                 type='dropdown'
-                options={['Option 1', 'Option 2', 'Option 3']}
+                options={[
+                  'Jennifer Techel',
+                  'Caisa Köhlin',
+                  'Nathanael Blackbourn',
+                  'Mimmi Collin',
+                ]}
               />
               <InputField label='Your message here:' type='textarea' rows={4} />
             </InputContainer>
             <Button text='SEND' width='100%' color='black' backgroundColor='#eca579' />
           </ContactSectionWrapper>
-        </FormSection>
+        </ContactBoxSection>
       </ContactWrapper>
     </Contact>
   );
 }
-
-const InputContainer = styled.div`
-  padding: 0 0.2rem;
-`;
 
 const Contact = styled.section`
   margin-top: 3rem;
@@ -66,7 +67,7 @@ const ContactWrapper = styled.div`
   }
 `;
 
-const FormSection = styled.section`
+const ContactBoxSection = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -83,6 +84,10 @@ const MapWrapper = styled.div`
   @media (min-width: 768px) {
     height: 25rem;
   }
+`;
+
+const InputContainer = styled.div`
+  padding: 0 0.2rem;
 `;
 
 const ContactSectionWrapper = styled.div`
