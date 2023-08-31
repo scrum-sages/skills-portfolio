@@ -38,7 +38,7 @@ export function Header() {
         <HeaderLogo />
         <HeaderNavigationWrapper>
           {headerLinks.map((link, index) => (
-            <NavLink key={index} link={link} color={headerTextColor} />
+            <NavLink key={index} $link={link} color={headerTextColor} />
           ))}
         </HeaderNavigationWrapper>
         <Burger $clicked={burgerClicked} onClick={handleBurgerClick} color={headerTextColor} />
@@ -47,7 +47,7 @@ export function Header() {
         {
           <DrawerLinks onClick={handleBurgerClick}>
             {headerLinks.map((link, index) => (
-              <NavLink key={index} link={link} color={headerTextColor} />
+              <NavLink key={index} $link={link} color={headerTextColor} />
             ))}
           </DrawerLinks>
         }

@@ -72,7 +72,6 @@ const ContactBoxSection = styled.section`
   flex-direction: column;
   width: 100%;
   height: 30rem;
-
   @media (min-width: 768px) {
     height: 36rem;
   }
