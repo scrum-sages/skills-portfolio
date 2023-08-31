@@ -8,14 +8,12 @@ import Team from './components/Team';
 function App() {
   return (
     <>
-      <div>
-        <Header></Header>
-        <Skills></Skills>
-        <Team />
-        <MapWrapper>
-          <Map />
-        </MapWrapper>
-      </div>
+      <Header />
+      <Team />
+      <Skills />
+      <MapWrapper>
+        <Map />
+      </MapWrapper>
     </>
   );
 }
