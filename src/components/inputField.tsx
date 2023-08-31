@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+//** Återanvändbart inputfält, där vi kan ska textinput, selection samt textbox. type avgör vilket typ av input det blir.*/
+
 interface InputFieldProps {
   label: string;
   type: 'text' | 'textarea' | 'dropdown'; // Define the possible types

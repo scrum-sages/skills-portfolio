@@ -14,6 +14,7 @@ export function Header() {
   const [burgerClicked, setBurgerClicked] = useState(false);
   const [extendNavbar, setExtendNavbar] = useState(false);
 
+  //** Ändra denna färg för att ändra färg på både header samt drawer samtidigt.*/
   const background = 'white';
 
   const handleBurgerClick = () => {
@@ -21,6 +22,7 @@ export function Header() {
     setExtendNavbar(!extendNavbar);
   };
 
+  //** Stänger drawer automatiskt när fönster blir bredare än 700px.*/
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth > 700) {
