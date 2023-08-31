@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import './App.css';
 import { Header } from './components/Header';
+import Hero from './components/Hero';
 import Map from './components/Map';
 import Skills from './components/Skills';
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <div>
         <Header></Header>
+        <Hero />
         <Skills></Skills>
         <MapWrapper>
           <Map />
