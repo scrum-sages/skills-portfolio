@@ -56,7 +56,7 @@ const DropdownElement = styled.select`
   margin-bottom: 3px;
   padding: 5px;
   @media (min-width: 768px) {
-    margin-bottom: 0px;
+    margin-bottom: 7px;
   }
 `;
 
