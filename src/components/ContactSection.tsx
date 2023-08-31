@@ -1,9 +1,8 @@
 import styled from 'styled-components';
 import Address from './Address';
-import Button from './Button';
+import { ContactForm } from './Form';
 import Map from './Map';
 import { SectionHeadline } from './SectionHeadline';
-import InputField from './inputField';
 
 export function ContactSection() {
   return (
@@ -21,22 +20,7 @@ export function ContactSection() {
         <ContactBoxSection>
           <SectionHeadline $color='white' title='TALK TO US'></SectionHeadline>
           <ContactSectionWrapper>
-            <InputContainer>
-              <InputField label='Your name:' type='text' />
-              <InputField label='Your email:' type='text' />
-              <InputField
-                label='Which of us would you like to speak to?'
-                type='dropdown'
-                options={[
-                  'Jennifer Techel',
-                  'Caisa Köhlin',
-                  'Nathanael Blackbourn',
-                  'Mimmi Collin',
-                ]}
-              />
-              <InputField label='Your message here:' type='textarea' rows={4} />
-            </InputContainer>
-            <Button text='SEND' width='100%' color='black' backgroundColor='#eca579' />
+            <ContactForm></ContactForm>
           </ContactSectionWrapper>
         </ContactBoxSection>
       </ContactWrapper>
@@ -86,10 +70,6 @@ const MapWrapper = styled.div`
   @media (min-width: 768px) {
     height: 25rem;
   }
-`;
-
-const InputContainer = styled.div`
-  padding: 0 0.2rem;
 `;
 
 const ContactSectionWrapper = styled.div`
