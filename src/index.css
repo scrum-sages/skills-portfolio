@@ -1,5 +1,14 @@
-*, ::after, *::before {
-  box-sizing: border-box;
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+body {
   margin: 0;
-  padding: 0;
+}
+
+h1,
+h2 {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
 }
