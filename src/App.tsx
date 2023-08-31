@@ -3,17 +3,17 @@ import './App.css';
 import { Header } from './components/Header';
 import Map from './components/Map';
 import Skills from './components/Skills';
+import Team from './components/Team';
 
 function App() {
   return (
     <>
-      <div>
-        <Header></Header>
-        <Skills></Skills>
-        <MapWrapper>
-          <Map />
-        </MapWrapper>
-      </div>
+      <Header />
+      <Team />
+      <Skills />
+      <MapWrapper>
+        <Map />
+      </MapWrapper>
     </>
   );
 }
