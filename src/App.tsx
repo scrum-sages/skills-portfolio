@@ -3,15 +3,17 @@ import { ContactSection } from './components/ContactSection';
 
 import { Header } from './components/Header';
 import Skills from './components/Skills';
+import Team from './components/Team';
 
 function App() {
   return (
     <>
-      <div>
-        <Header></Header>
-        <Skills></Skills>
-        <ContactSection></ContactSection>
-      </div>
+      <Header></Header>
+      <Skills></Skills>
+      <ContactSection></ContactSection>
+      <Header />
+      <Team />
+      <Skills />
     </>
   );
 }

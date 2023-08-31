@@ -1,8 +1,18 @@
+
 *, ::after, *::before {
   box-sizing: border-box;
+}
+:root {
   font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
 }
 
 body {
   margin: 0;
+
+}
+
+h1,
+h2 {
+  font-weight: 500;
 }
