@@ -45,12 +45,15 @@ export function ContactSection() {
 }
 
 const Contact = styled.section`
-  margin-top: 3rem;
   height: auto;
   width: 100%;
   display: flex;
   background: black;
   justify-content: center;
+  @media (min-width: 768px) {
+    height: 100vh;
+    min-height: 44rem;
+  }
 `;
 const ContactWrapper = styled.div`
   max-width: 1440px;
@@ -73,7 +76,7 @@ const ContactBoxSection = styled.section`
   width: 100%;
   height: 30rem;
   @media (min-width: 768px) {
-    height: 36rem;
+    height: 38rem;
   }
 `;
 
