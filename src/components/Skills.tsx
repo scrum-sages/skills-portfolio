@@ -17,7 +17,7 @@ import {
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SkillsData, data } from './data';
-import SkillDetails from './SkillDetails'; 
+import SkillDetails from './SkillDetails';
 
 const Background = styled.div`
   background: #eca579;
@@ -82,7 +82,7 @@ const Card = styled.div`
   }
 `;
 
-const icons: { [key: string]: JSX.Element } = {
+export const icons: { [key: string]: JSX.Element } = {
   IconBrandGithub: (
     <IconWrapper>
       <IconBrandGithub size={80} stroke={1} />
@@ -171,28 +171,27 @@ export default function Skills() {
     <Background>
       <ContentWrapper>
         {!selectedSkill ? (
-        <>
-        <Flex>
-          {displayData.map((item, index) => (
-            <Card key={index}
-            onClick={() => setSelectedSkill(item)}>
-              {icons[item.icon]}
-              <Title>{item.title}</Title>
-            </Card>
-          ))}
-        </Flex>
-        <Buttons>
-          {isExpanded ? (
-            <TransparentButton onClick={handleDisplayLess}>
-              Close <IconChevronUp />
-            </TransparentButton>
-          ) : (
-            <TransparentButton onClick={handleExpand}>
-              See the complete list <IconChevronDown />
-            </TransparentButton>
-          )}
-        </Buttons>
-        </>
+          <>
+            <Flex>
+              {displayData.map((item, index) => (
+                <Card key={index} onClick={() => setSelectedSkill(item)}>
+                  {icons[item.icon]}
+                  <Title>{item.title}</Title>
+                </Card>
+              ))}
+            </Flex>
+            <Buttons>
+              {isExpanded ? (
+                <TransparentButton onClick={handleDisplayLess}>
+                  Close <IconChevronUp />
+                </TransparentButton>
+              ) : (
+                <TransparentButton onClick={handleExpand}>
+                  See the complete list <IconChevronDown />
+                </TransparentButton>
+              )}
+            </Buttons>
+          </>
         ) : (
           <SkillDetails data={selectedSkill} onBack={() => setSelectedSkill(null)} />
         )}
