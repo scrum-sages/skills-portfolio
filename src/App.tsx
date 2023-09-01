@@ -1,26 +1,20 @@
-import styled from 'styled-components';
 import './App.css';
+import { ContactSection } from './components/ContactSection';
+
 import { Header } from './components/Header';
-import Map from './components/Map';
 import Skills from './components/Skills';
 import Team from './components/Team';
 
 function App() {
   return (
     <>
-      <Header />
+      <Header></Header>
       <Team />
-      <Skills />
-      <MapWrapper>
-        <Map />
-      </MapWrapper>
+      <Skills></Skills>
+      <ContactSection></ContactSection>
+      <Header />
     </>
   );
 }
-
-const MapWrapper = styled.div`
-  height: 20rem;
-  width: 20rem;
-`;
 
 export default App;
