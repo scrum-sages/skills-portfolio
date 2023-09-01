@@ -19,42 +19,27 @@ export default function Hero() {
         return <Circle />;
 
       case 3:
-        return <ContactButton />;
+        return <ContactButton>CONTACT US</ContactButton>;
 
       default:
         return col;
     }
   };
 
-  const HeroContainer = styled.div`
-    height: 100vh;
-    width: 100%;
-    max-width: 1440px;
-
-    display: flex;
-
-    margin: 4rem 1rem 0 1rem;
-  `;
-
-  const HeroSection = styled.div`
-    display: flex;
-    justify-content: center;
-  `;
-
   return (
     <HeroSection>
       <HeroContainer>
         {PatternMap.map((row, i) => {
           return (
-            <HeroColumn key={i} i={i}>
+            <ColumnDiv key={i} i={i}>
               {row.map((col, j) => {
                 return (
-                  <HeroCell key={j} j={j}>
+                  <CellDiv key={j} className={`row ${j}`}>
                     {setContent(col)}
-                  </HeroCell>
+                  </CellDiv>
                 );
               })}
-            </HeroColumn>
+            </ColumnDiv>
           );
         })}
       </HeroContainer>
@@ -62,31 +47,53 @@ export default function Hero() {
   );
 }
 
+const HeroContainer = styled.div`
+  height: 100vh;
+  width: 100%;
+  max-width: 1440px;
+
+  display: flex;
+
+  margin: 4rem 1rem 0 1rem;
+`;
+
+const HeroSection = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 interface ColumnProps {
   i: number;
 }
 
-function HeroColumn({ children, i }: { children: React.ReactNode; i: number }) {
-  const ColumnDiv = styled.div<ColumnProps>`
-    display: flex;
-    flex-direction: column;
-    flex: ${props => (props.i === 5 ? 0 : 1)};
-  `;
+const ColumnDiv = styled.div<ColumnProps>`
+  display: flex;
+  flex-direction: column;
+  flex: ${props => (props.i === 5 ? 0 : 1)};
 
-  return <ColumnDiv i={i}>{children}</ColumnDiv>;
-}
+  ${props => (props.i === 1 || props.i === 2 ? '@media (max-width: 768px) {display: none;}' : '')}
+`;
 
-function HeroCell({ j, children }: { j: number; children: React.ReactNode }) {
-  const CellDiv = styled.div`
-    flex: 1;
+const CellDiv = styled.div`
+  flex: 1;
 
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: Medium;
-    font-size: 1.5rem;
-  `;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: Medium;
+  font-size: 1.5rem;
+`;
 
-  return <CellDiv className={'col' + j}>{children}</CellDiv>;
-}
+const ContactButton = styled.button`
+  border: none;
+  background-color: #eca579;
+
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 9999px;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: Medium;
+  font-size: 1.2rem;
+`;
 
 function Star() {
   return (
@@ -118,6 +125,4 @@ function Circle() {
   );
 }
 
-function ContactButton() {
-  return <></>;
-}
+// const GridIcon = styled.svg``;

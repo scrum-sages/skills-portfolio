@@ -1,8 +1,8 @@
-import styled from 'styled-components';
 import './App.css';
+import { ContactSection } from './components/ContactSection';
+
 import { Header } from './components/Header';
 import Hero from './components/Hero';
-import Map from './components/Map';
 import Skills from './components/Skills';
 import Team from './components/Team';
 
@@ -13,16 +13,9 @@ function App() {
       <Hero />
       <Team />
       <Skills />
-      <MapWrapper>
-        <Map />
-      </MapWrapper>
+      <ContactSection />
     </>
   );
 }
-
-const MapWrapper = styled.div`
-  height: 20rem;
-  width: 20rem;
-`;
 
 export default App;
