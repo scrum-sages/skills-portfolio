@@ -13,9 +13,24 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
+const ResponsiveWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+`;
+
 const ExpertsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+`;
+
+const Text = styled.p`
+  max-width: 20rem;
 `;
 
 const BackButton = styled.button`
@@ -46,14 +61,14 @@ const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
       </BackButton>
       </Wrapper>
       <h2>{data.title}</h2>
-      <Wrapper>
-      <p>{data.details}</p>
+      <ResponsiveWrapper>
+      <Text>{data.details}</Text>
       <ExpertsWrapper>
       <p>Our experts</p>
       <p>Expert name 1</p>
       <p>Expert name 2</p>
       </ExpertsWrapper>
-      </Wrapper>
+      </ResponsiveWrapper>
     </DetailsWrapper>
   );
 };
