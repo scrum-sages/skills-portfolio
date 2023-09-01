@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SkillsData, data } from './data';
+import SkillDetails from './SkillDetails'; 
 
 const Background = styled.div`
   background: #eca579;
@@ -147,8 +148,8 @@ const icons: { [key: string]: JSX.Element } = {
 export default function Skills() {
   const [displayData, setDisplayData] = useState<SkillsData[]>([]);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [selectedSkill, setSelectedSkill] = useState<SkillsData | null>(null);
 
-  // Define how many cards per row and how many rows you want to initially display
   const cardsPerRow = 4;
   const initialRows = 2;
 
@@ -169,9 +170,12 @@ export default function Skills() {
   return (
     <Background>
       <ContentWrapper>
+        {!selectedSkill ? (
+        <>
         <Flex>
           {displayData.map((item, index) => (
-            <Card key={index}>
+            <Card key={index}
+            onClick={() => setSelectedSkill(item)}>
               {icons[item.icon]}
               <Title>{item.title}</Title>
             </Card>
@@ -188,6 +192,10 @@ export default function Skills() {
             </TransparentButton>
           )}
         </Buttons>
+        </>
+        ) : (
+          <SkillDetails data={selectedSkill} onBack={() => setSelectedSkill(null)} />
+        )}
       </ContentWrapper>
     </Background>
   );
