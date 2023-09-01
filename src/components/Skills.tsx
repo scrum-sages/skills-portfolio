@@ -17,7 +17,7 @@ import {
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SkillsData, data } from './data';
-import SkillDetails from './SkillDetails';
+import SkillDetails from './SkillsDetails';
 
 const Background = styled.div`
   background: #eca579;
@@ -76,6 +76,7 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     margin: 1rem;

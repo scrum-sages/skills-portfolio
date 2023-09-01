@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { IconX } from '@tabler/icons-react';
+import { icons } from './Skills';
 
 const DetailsWrapper = styled.div`
   padding: 2rem;
@@ -38,10 +39,13 @@ interface SkillsData {
 const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
   return (
     <DetailsWrapper>
+      <Wrapper>
+      {icons[data.icon]}
       <BackButton onClick={onBack}>
         <IconX size={40} />
       </BackButton>
-      <h1>{data.title}</h1>
+      </Wrapper>
+      <h2>{data.title}</h2>
       <Wrapper>
       <p>{data.details}</p>
       <ExpertsWrapper>

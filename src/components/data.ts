@@ -16,64 +16,63 @@ export interface SkillsData {
     {
       title: 'HTML',
       icon: 'IconBrandHtml5',
-      details: 'HTML.',
+      details: 'Our team is proficient in HTML, the backbone of web development. We use it to structure our web pages effectively.',
     },
     {
       title: 'CSS',
       icon: 'IconBrandCss3',
-      details: 'CSS.',
+      details: 'We rely on CSS for crafting responsive and visually appealing designs. Our team ensures that our projects look good on all devices.',
     },
     {
       title: 'JavaScript',
       icon: 'IconBrandJavascript',
-      details: 'JavaScript.',
+      details: 'JavaScript is our go-to for adding dynamic functionality to websites. We have extensive experience in leveraging its capabilities.',
     },
     {
       title: 'TypeScript',
       icon: 'IconBrandTypescript',
-      details: 'TypeScript has been used in several bigger projects, such as e-commerce sites.',
+      details: 'Our team has used TypeScript in larger, complex projects like e-commerce sites to ensure type safety and enhance code quality.',
     },
     {
       title: 'GitHub',
       icon: 'IconBrandGithub',
-      details: 'We have used GitHub to work on group projects.',
+      details: 'We collaborate on GitHub to maintain version control and streamline our development workflow, making team projects more efficient.',
     },
     {
       title: 'Figma',
       icon: 'IconBrandFigma',
       details:
-        'We have used Figma to design wireframes and make prototypes as well as visually communicate ideas.',
+        'Figma is our choice for wireframing, prototyping, and visually communicating our ideas, ensuring everyone is on the same page.',
     },
     {
       title: 'Cypress',
       icon: 'IconBrandCypress',
-      details: 'Cypress has been used for testing our front end web applications.',
+      details: 'We use Cypress for front-end testing, allowing us to identify issues early and assure the reliability of our web applications.',
     },
     {
       title: 'Socket.io',
       icon: 'IconBrandSocketIo',
-      details: 'Used to build a chat application for the web.',
+      details: 'Socket.io has been instrumental in our chat application projects, enabling real-time communication between users.',
     },
     {
       title: 'MongoDB',
       icon: 'IconBrandMongodb',
-      details:
-        'Database hosting for e-commerce site, chat app and twitter copy. Hosts user info like username, encrypted password, posts or products as well as additional metadata associated with these.',
+      details: 'Our team uses MongoDB for its flexibility and scalability in hosting databases for various applications like e-commerce sites and chat apps.',
     },
     {
       title: 'Mantine UI',
       icon: 'IconBrandMantine',
-      details: 'Design system used in e-commerce and chat app projects.',
+      details: 'We have leveraged Mantine UI in our e-commerce and chat app projects, achieving a cohesive and user-friendly interface.',
     },
     {
       title: 'VS Code',
       icon: 'IconBrandVscode',
-      details: 'Vs Code ',
+      details: 'VS Code is our primary IDE, offering an array of extensions and debugging tools that streamline our coding process.',
     },
     {
       title: 'Adobe Suite',
       icon: 'IconBrandAdobe',
       details:
-        'Illustrator, Photoshop and InDesign were used to create graphic profiles and wireframes as well as mock ups of logos on products.',
+        'Our team uses Adobe Suite for everything from graphic design to wireframing, and even product mock-ups, providing a comprehensive design solution.',
     },
   ];
