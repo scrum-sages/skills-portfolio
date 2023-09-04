@@ -65,6 +65,7 @@ interface SkillsData {
   title: string;
   icon: string;
   details: string;
+  experts: string[];
 }
 
 const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
@@ -81,8 +82,9 @@ const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
       <Text>{data.details}</Text>
       <ExpertsWrapper>
       <ExpertsTitle>Our experts</ExpertsTitle>
-      <ExpertsText>Expert name 1</ExpertsText>
-      <ExpertsText>Expert name 2</ExpertsText>
+      {data.experts.map((expert, index) => ( 
+        <ExpertsText key={index}>{expert}</ExpertsText>
+      ))}
       </ExpertsWrapper>
       </ResponsiveWrapper>
     </DetailsWrapper>
