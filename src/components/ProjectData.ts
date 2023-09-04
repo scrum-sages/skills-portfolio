@@ -6,26 +6,26 @@ export interface ProjectData {
 
 export const ProjectList: ProjectData[] = [
   {
-    title: 'OUR CASE',
+    title: 'PIECE BY PIECE',
+    imageURL: 'piece.svg',
+    details:
+      'Something about the skill and how awesome we are and some.  Something about the skill and how awesome we are and some. Something about the skill and how awesome we are and some. Something about the skill and how awesome.',
+  },
+  {
+    title: 'BOBA BLISS',
+    imageURL: 'boba-bliss.svg',
+    details:
+      'Something about the skill and how awesome we are and some.  Something about the skill and how awesome we are and some. Something about the skill and how awesome we are and some. Something about the skill and how awesome.',
+  },
+  {
+    title: 'BY GROOVE',
     imageURL: 'by-groove.svg',
     details:
       'Something about the skill and how awesome we are and some.  Something about the skill and how awesome we are and some. Something about the skill and how awesome we are and some. Something about the skill and how awesome.',
   },
   {
-    title: 'ANOTHER CASE',
-    imageURL: 'by-groove.svg',
-    details:
-      'Something about the skill and how awesome we are and some.  Something about the skill and how awesome we are and some. Something about the skill and how awesome we are and some. Something about the skill and how awesome.',
-  },
-  {
-    title: 'PREVIOUS CASE',
-    imageURL: 'by-groove.svg',
-    details:
-      'Something about the skill and how awesome we are and some.  Something about the skill and how awesome we are and some. Something about the skill and how awesome we are and some. Something about the skill and how awesome.',
-  },
-  {
-    title: 'CASE CASE CASE',
-    imageURL: 'by-groove.svg',
+    title: 'VEGAN BAGS',
+    imageURL: 'vegan-bags.svg',
     details:
       'Something about the skill and how awesome we are and some.  Something about the skill and how awesome we are and some. Something about the skill and how awesome we are and some. Something about the skill and how awesome.',
   },
