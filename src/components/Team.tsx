@@ -54,7 +54,7 @@ function Team() {
             </ImageBox>
             <Heading>Mimmi Collin</Heading>
             <BasicText>
-              Mimmi - a passionate artist, programmer, writer, and creator. She specializes in
+              Mimmi is a passionate artist, programmer, writer, and creator specializing in
               crafting stunning websites and captivating games.
             </BasicText>
             <MonoText>Frontend developer</MonoText>
@@ -116,9 +116,6 @@ const TeamMemberBox = styled.div`
   @media (min-width: 768px) {
     padding: 0 4rem 2rem 4rem;
     width: 50%;
-  }
-  @media (min-width: 1024px) {
-    width 25%
   }
   &:hover ${ImageCircle} {
     background-color: #eca579;
