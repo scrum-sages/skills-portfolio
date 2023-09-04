@@ -4,7 +4,7 @@ import { ProjectList } from './ProjectData'; // Import your data file
 function Projects() {
   return (
     <Container>
-      <h2 style={{ paddingLeft: '2rem' }}>PROJECTS</h2>
+      <Heading>PROJECTS</Heading>
       <ProjectSection>
         {ProjectList.map((project, index) => (
           <ProjectItem key={index}>
@@ -23,7 +23,15 @@ const Container = styled.div`
   width: 100vw;
   background: #f0eee8;
   text-align: left;
-  padding: 2rem 2rem 6rem 2rem;
+  padding: 2rem 0 6rem 0;
+
+  @media (min-width: 1024px) {
+    padding: 2rem 2rem 6rem 2rem;
+  }
+`;
+
+const Heading = styled.h2`
+  padding-left: 2rem;
 `;
 
 const ProjectSection = styled.div`
@@ -35,6 +43,7 @@ const ProjectSection = styled.div`
 const ProjectItem = styled.div`
   width: 100%;
   padding: 2rem;
+
   @media (min-width: 768px) {
     width: 50%;
   }
