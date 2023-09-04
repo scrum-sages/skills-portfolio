@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import useClosestMedia from '../hooks/useClosestMedia';
+import CallToAction from './CallToAction';
 
 interface Props {
   contactRef: React.RefObject<HTMLDivElement>;
@@ -13,30 +14,30 @@ export default function Hero({ contactRef }: Props) {
       ['Explore expertise.', 2, 1, 2, 1],
       [2, 1, 2, 1, 2],
       [1, 2, 1, 2, 1],
-      ['Meet your next collaborator.', 1, 2, 1, 2],
-      [3, 2, 1, 2, 1],
+      [2, 1, 2, 1, 2],
+      [1, 2, 1, 2, 1],
     ],
     md: [
       ['Explore expertise.', 2, 1, 2],
       [2, 1, 2, 1],
       [1, 2, 1, 2],
-      ['Meet your next collaborator.', 1, 2, 1],
-      [3, 2, 1, 2],
+      [2, 1, 2, 1],
+      [1, 2, 1, 2],
     ],
     sm: [
       ['Explore expertise.', 2, 1],
       [2, 1, 2],
       [1, 2, 1],
-      ['Meet your next collaborator.', 1, 2],
-      [3, 2, 1],
-    ],
-    xs: [
-      ['Explore expertise.', 2],
-      [1, 2, 1],
       [2, 1, 2],
-      ['Meet your next collaborator', 1],
-      [3, 2],
+      [1, 2, 1],
     ],
+    // xs: [
+    //   ['Explore expertise.', 2],
+    //   [1, 2, 1],
+    //   [2, 1, 2],
+    //   ['Meet your next collaborator', 1],
+    //   [3, 2],
+    // ],
   };
 
   const PatternMap = Maps[screenSize as keyof typeof Maps];
@@ -49,9 +50,6 @@ export default function Hero({ contactRef }: Props) {
       case 2:
         return <Circle />;
 
-      case 3:
-        return <ContactButton contactRef={contactRef} />;
-
       default:
         return col;
     }
@@ -62,10 +60,10 @@ export default function Hero({ contactRef }: Props) {
       <HeroContainer>
         {PatternMap.map((col, i) => {
           return (
-            <RowDiv key={i} isLastRow={i === PatternMap.length - 1}>
+            <RowDiv key={i} $isLastRow={i === PatternMap.length - 1}>
               {col.map((row, j) => {
                 return (
-                  <CellDiv key={j} isLastCol={j === col.length - 1}>
+                  <CellDiv key={j} $isLastCol={j === col.length - 1}>
                     {setContent(row)}
                   </CellDiv>
                 );
@@ -73,12 +71,15 @@ export default function Hero({ contactRef }: Props) {
             </RowDiv>
           );
         })}
+        <CallToAction contactRef={contactRef} />
       </HeroContainer>
     </HeroSection>
   );
 }
 
 const HeroContainer = styled.div`
+  position: relative;
+
   height: calc(100vh - 4rem);
   width: 100%;
   max-width: 1440px;
@@ -97,54 +98,26 @@ const HeroSection = styled.div`
 `;
 
 interface RowProps {
-  isLastRow: boolean;
+  $isLastRow: boolean;
 }
 
 const RowDiv = styled.div<RowProps>`
   display: flex;
   gap: 2rem;
-  flex: ${props => (props.isLastRow ? 0 : 1)};
+  flex: ${props => (props.$isLastRow ? 0 : 1)};
 `;
 
 interface CellProps {
-  isLastCol: boolean;
+  $isLastCol: boolean;
 }
 
 const CellDiv = styled.div<CellProps>`
-  flex: ${props => (props.isLastCol ? 0 : 1)};
+  flex: ${props => (props.$isLastCol ? 0 : 1)};
 
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: Medium;
   font-size: 1.5rem;
 `;
-
-const StyledContactButton = styled.button`
-  border: none;
-  background-color: #eca579;
-
-  width: 100%;
-  padding: 0.5rem;
-  border-radius: 9999px;
-
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: Medium;
-  font-size: 1.2rem;
-
-  cursor: pointer;
-`;
-
-interface ContactButtonProps {
-  contactRef: React.RefObject<HTMLDivElement>;
-}
-
-function ContactButton({ contactRef }: ContactButtonProps) {
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  return <StyledContactButton onClick={handleClick}>Contact us</StyledContactButton>;
-}
 
 function Star() {
   return (

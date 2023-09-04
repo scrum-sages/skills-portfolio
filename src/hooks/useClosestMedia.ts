@@ -6,7 +6,7 @@ interface Size {
 }
 
 const sizes: Size[] = [
-  { name: 'xs', width: 480 },
+  // { name: 'xs', width: 480 },
   { name: 'sm', width: 640 },
   { name: 'md', width: 768 },
   { name: 'lg', width: 1024 },
