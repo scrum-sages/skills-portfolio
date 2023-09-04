@@ -22,7 +22,7 @@ function App() {
       <Team navRef={navRefs.team} />
       <Skills navRef={navRefs.skills} />
       <ContactSection navRef={navRefs.contact} />
-      <Footer />
+      <Footer navRefs={navRefs} />
     </>
   );
 }
