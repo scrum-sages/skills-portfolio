@@ -4,9 +4,13 @@ import { ContactForm } from './Form';
 import Map from './Map';
 import { SectionHeadline } from './SectionHeadline';
 
-export function ContactSection() {
+interface Props {
+  navRef: React.RefObject<HTMLDivElement>;
+}
+
+export function ContactSection({ navRef }: Props) {
   return (
-    <Contact>
+    <Contact ref={navRef}>
       <ContactWrapper>
         <ContactBoxSection>
           <SectionHeadline $color='white' title='FIND US'></SectionHeadline>

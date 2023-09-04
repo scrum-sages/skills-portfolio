@@ -1,8 +1,12 @@
 import { styled } from 'styled-components';
 
-function Team() {
+interface Props {
+  navRef: React.RefObject<HTMLDivElement>;
+}
+
+function Team({ navRef }: Props) {
   return (
-    <Container>
+    <Container ref={navRef}>
       <h2 style={{ textAlign: 'center', fontSize: '2rem' }}>MEET THE TEAM</h2>
       <TeamSection>
         <TeamSectionBox>

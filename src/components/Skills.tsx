@@ -144,7 +144,11 @@ const icons: { [key: string]: JSX.Element } = {
   ),
 };
 
-export default function Skills() {
+interface Props {
+  navRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function Skills({ navRef }: Props) {
   const [displayData, setDisplayData] = useState<SkillsData[]>([]);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
@@ -167,7 +171,7 @@ export default function Skills() {
   }, []);
 
   return (
-    <Background>
+    <Background ref={navRef}>
       <ContentWrapper>
         <Flex>
           {displayData.map((item, index) => (

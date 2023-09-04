@@ -1,7 +1,11 @@
 import styled from 'styled-components';
 import useClosestMedia from '../hooks/useClosestMedia';
 
-export default function Hero() {
+interface Props {
+  contactRef: React.RefObject<HTMLDivElement>;
+}
+
+export default function Hero({ contactRef }: Props) {
   const screenSize = useClosestMedia();
 
   const Maps = {
@@ -9,27 +13,27 @@ export default function Hero() {
       ['Explore expertise.', 2, 1, 2, 1],
       [2, 1, 2, 1, 2],
       [1, 2, 1, 2, 1],
-      [2, 1, 2, 1, 2],
-      ['Meet your next collaborator', 3, 1, 2, 1],
+      ['Meet your next collaborator.', 1, 2, 1, 2],
+      [3, 2, 1, 2, 1],
     ],
     md: [
       ['Explore expertise.', 2, 1, 2],
       [2, 1, 2, 1],
       [1, 2, 1, 2],
-      [2, 1, 2, 1],
-      ['Meet your next collaborator.', 3, 1, 2],
+      ['Meet your next collaborator.', 1, 2, 1],
+      [3, 2, 1, 2],
     ],
     sm: [
       ['Explore expertise.', 2, 1],
       [2, 1, 2],
       [1, 2, 1],
-      [2, 1, 2],
-      ['Meet your next collaborator.', 3, 1],
+      ['Meet your next collaborator.', 1, 2],
+      [3, 2, 1],
     ],
     xs: [
       ['Explore expertise.', 2],
-      [2, 1],
-      [1, 2],
+      [1, 2, 1],
+      [2, 1, 2],
       ['Meet your next collaborator', 1],
       [3, 2],
     ],
@@ -46,7 +50,7 @@ export default function Hero() {
         return <Circle />;
 
       case 3:
-        return <ContactButton>Contact us</ContactButton>;
+        return <ContactButton contactRef={contactRef} />;
 
       default:
         return col;
@@ -87,6 +91,7 @@ const HeroContainer = styled.div`
 `;
 
 const HeroSection = styled.div`
+  background-color: #f0eee8;
   display: flex;
   justify-content: center;
 `;
@@ -113,7 +118,7 @@ const CellDiv = styled.div<CellProps>`
   font-size: 1.5rem;
 `;
 
-const ContactButton = styled.button`
+const StyledContactButton = styled.button`
   border: none;
   background-color: #eca579;
 
@@ -124,14 +129,22 @@ const ContactButton = styled.button`
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: Medium;
   font-size: 1.2rem;
+
+  cursor: pointer;
 `;
 
-const HeroSVG = styled.svg`
-  path {
-    stroke: black;
-    stroke-width: 5;
-  }
-`;
+interface ContactButtonProps {
+  contactRef: React.RefObject<HTMLDivElement>;
+}
+
+function ContactButton({ contactRef }: ContactButtonProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    contactRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return <StyledContactButton onClick={handleClick}>Contact us</StyledContactButton>;
+}
 
 function Star() {
   return (
@@ -166,3 +179,10 @@ function Circle() {
     </HeroSVG>
   );
 }
+
+const HeroSVG = styled.svg`
+  path {
+    stroke: black;
+    stroke-width: 5;
+  }
+`;
