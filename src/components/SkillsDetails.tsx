@@ -13,6 +13,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
+const IconWrapper = styled.div`
+  margin-left: -1rem;
+`;
+
 const ResponsiveWrapper = styled.div`
   display: flex;
   flex-direction: row;
@@ -27,6 +31,18 @@ const ResponsiveWrapper = styled.div`
 const ExpertsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    margin-top: 4rem;
+  }
+`;
+
+const ExpertsText = styled.p`
+    margin: 0;
+`;
+
+const ExpertsTitle = styled.p`
+    margin-top: 1rem;
 `;
 
 const Text = styled.p`
@@ -55,7 +71,7 @@ const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
   return (
     <DetailsWrapper>
       <Wrapper>
-      {icons[data.icon]}
+      <IconWrapper>{icons[data.icon]}</IconWrapper>
       <BackButton onClick={onBack}>
         <IconX size={40} />
       </BackButton>
@@ -64,9 +80,9 @@ const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
       <ResponsiveWrapper>
       <Text>{data.details}</Text>
       <ExpertsWrapper>
-      <p>Our experts</p>
-      <p>Expert name 1</p>
-      <p>Expert name 2</p>
+      <ExpertsTitle>Our experts</ExpertsTitle>
+      <ExpertsText>Expert name 1</ExpertsText>
+      <ExpertsText>Expert name 2</ExpertsText>
       </ExpertsWrapper>
       </ResponsiveWrapper>
     </DetailsWrapper>
