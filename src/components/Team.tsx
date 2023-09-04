@@ -58,8 +58,8 @@ function Team({ navRef }: Props) {
             </ImageBox>
             <Heading>Mimmi Collin</Heading>
             <BasicText>
-              Mimmi - a passionate artist, programmer, writer, and creator. She specializes in
-              crafting stunning websites and captivating games.
+              Mimmi is a passionate artist, programmer, writer, and creator specializing in crafting
+              stunning websites and captivating games.
             </BasicText>
             <MonoText>Frontend developer</MonoText>
             <MonoText>mimmi@sage.com</MonoText>

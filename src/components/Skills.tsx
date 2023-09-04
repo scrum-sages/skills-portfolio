@@ -17,6 +17,7 @@ import {
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { SkillsData, data } from './data';
+import SkillDetails from './SkillsDetails';
 
 const Background = styled.div`
   background: #eca579;
@@ -75,13 +76,14 @@ const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 
   @media (max-width: 768px) {
     margin: 1rem;
   }
 `;
 
-const icons: { [key: string]: JSX.Element } = {
+export const icons: { [key: string]: JSX.Element } = {
   IconBrandGithub: (
     <IconWrapper>
       <IconBrandGithub size={80} stroke={1} />
@@ -151,8 +153,8 @@ interface Props {
 export default function Skills({ navRef }: Props) {
   const [displayData, setDisplayData] = useState<SkillsData[]>([]);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [selectedSkill, setSelectedSkill] = useState<SkillsData | null>(null);
 
-  // Define how many cards per row and how many rows you want to initially display
   const cardsPerRow = 4;
   const initialRows = 2;
 
@@ -173,25 +175,31 @@ export default function Skills({ navRef }: Props) {
   return (
     <Background ref={navRef}>
       <ContentWrapper>
-        <Flex>
-          {displayData.map((item, index) => (
-            <Card key={index}>
-              {icons[item.icon]}
-              <Title>{item.title}</Title>
-            </Card>
-          ))}
-        </Flex>
-        <Buttons>
-          {isExpanded ? (
-            <TransparentButton onClick={handleDisplayLess}>
-              Close <IconChevronUp />
-            </TransparentButton>
-          ) : (
-            <TransparentButton onClick={handleExpand}>
-              See the complete list <IconChevronDown />
-            </TransparentButton>
-          )}
-        </Buttons>
+        {!selectedSkill ? (
+          <>
+            <Flex>
+              {displayData.map((item, index) => (
+                <Card key={index} onClick={() => setSelectedSkill(item)}>
+                  {icons[item.icon]}
+                  <Title>{item.title}</Title>
+                </Card>
+              ))}
+            </Flex>
+            <Buttons>
+              {isExpanded ? (
+                <TransparentButton onClick={handleDisplayLess}>
+                  Close <IconChevronUp />
+                </TransparentButton>
+              ) : (
+                <TransparentButton onClick={handleExpand}>
+                  See the complete list <IconChevronDown />
+                </TransparentButton>
+              )}
+            </Buttons>
+          </>
+        ) : (
+          <SkillDetails data={selectedSkill} onBack={() => setSelectedSkill(null)} />
+        )}
       </ContentWrapper>
     </Background>
   );
