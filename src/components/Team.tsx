@@ -94,6 +94,7 @@ const TeamSectionBox = styled.div`
   }
   @media (min-width: 1024px) {
     flex-direction: row;
+    width: 50%;
   }
 `;
 
@@ -111,8 +112,13 @@ const TeamMemberBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: right;
+  width: 100%;
   @media (min-width: 768px) {
     padding: 0 4rem 2rem 4rem;
+    width: 50%;
+  }
+  @media (min-width: 1024px) {
+    width 25%
   }
   &:hover ${ImageCircle} {
     background-color: #eca579;
