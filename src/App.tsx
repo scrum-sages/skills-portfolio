@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header navRefs={navRefs} />
       <Hero contactRef={navRefs.contact} />
       <Team navRef={navRefs.team} />
       <Skills navRef={navRefs.skills} />

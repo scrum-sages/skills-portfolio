@@ -10,7 +10,11 @@ interface StyledHeaderProps {
   $background: string;
 }
 
-export function Header() {
+interface HeaderProps {
+  navRefs: { [key: string]: React.RefObject<HTMLDivElement> };
+}
+
+export function Header({ navRefs }: HeaderProps) {
   const [burgerClicked, setBurgerClicked] = useState(false);
   const [extendNavbar, setExtendNavbar] = useState(false);
 
@@ -40,7 +44,12 @@ export function Header() {
         <HeaderLogo />
         <HeaderNavigationWrapper>
           {headerLinks.map((link, index) => (
-            <NavLink key={index} $link={link} color={headerTextColor} />
+            <NavLink
+              key={index}
+              $link={link}
+              color={headerTextColor}
+              navRef={navRefs[link.toLowerCase()]}
+            />
           ))}
         </HeaderNavigationWrapper>
         <Burger $clicked={burgerClicked} onClick={handleBurgerClick} color={headerTextColor} />
@@ -49,7 +58,12 @@ export function Header() {
         {
           <DrawerLinks onClick={handleBurgerClick}>
             {headerLinks.map((link, index) => (
-              <NavLink key={index} $link={link} color={headerTextColor} />
+              <NavLink
+                key={index}
+                $link={link}
+                color={headerTextColor}
+                navRef={navRefs[link.toLowerCase()]}
+              />
             ))}
           </DrawerLinks>
         }
