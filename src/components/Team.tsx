@@ -118,7 +118,7 @@ const TeamMemberBox = styled.div`
     width: 50%;
   }
   @media (min-width: 1024px) {
-    width 25%
+    width: 25%;
   }
   &:hover ${ImageCircle} {
     background-color: #eca579;

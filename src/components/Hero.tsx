@@ -1,14 +1,73 @@
 import styled from 'styled-components';
+import useClosestMedia from '../hooks/useClosestMedia';
 
 export default function Hero() {
-  const PatternMap = [
-    ['Explore expertise.', 2, 1, 2, 1],
-    [2, 1, 2, 1, 2],
-    [1, 2, 1, 2, 1],
-    [2, 1, 2, 1, 'Find your new collaborator'],
-    [1, 2, 1, 2, 3],
-    [2, 1, 2, 1, ''],
-  ];
+  const screenSize = useClosestMedia();
+
+  // const MapLg = [
+  //   ['Explore expertise.', 2, 1, 2, 1],
+  //   [2, 1, 2, 1, 2],
+  //   [1, 2, 1, 2, 1],
+  //   [2, 1, 2, 1, 2],
+  //   ['Meet your next collaborator', 3, 1, 2, 1],
+  // ];
+
+  // const MapMd = [
+  //   ['Explore expertise.', 2, 1, 2],
+  //   [2, 1, 2, 1],
+  //   [1, 2, 1, 2],
+  //   [2, 1, 2, 1],
+  //   ['Meet your next collaborator.', 3, 1, 2],
+  // ];
+
+  // const MapSm = [
+  //   ['Explore expertise.', 2, 1],
+  //   [2, 1, 2],
+  //   [1, 2, 1],
+  //   [2, 1, 2],
+  //   ['Meet your next collaborator.', 3, 1],
+  // ];
+
+  // const MapXs = [
+  //   ['Explore expertise.', 2],
+  //   [2, 1],
+  //   [1, 2],
+  //   ['Meet your next collaborator', 1],
+  //   [3, 2],
+  // ]
+
+  const Maps = {
+    lg: [
+      ['Explore expertise.', 2, 1, 2, 1],
+      [2, 1, 2, 1, 2],
+      [1, 2, 1, 2, 1],
+      [2, 1, 2, 1, 2],
+      ['Meet your next collaborator', 3, 1, 2, 1],
+    ],
+    md: [
+      ['Explore expertise.', 2, 1, 2],
+      [2, 1, 2, 1],
+      [1, 2, 1, 2],
+      [2, 1, 2, 1],
+      ['Meet your next collaborator.', 3, 1, 2],
+    ],
+    sm: [
+      ['Explore expertise.', 2, 1],
+      [2, 1, 2],
+      [1, 2, 1],
+      [2, 1, 2],
+      ['Meet your next collaborator.', 3, 1],
+    ],
+    xs: [
+      ['Explore expertise.', 2],
+      [2, 1],
+      [1, 2],
+      ['Meet your next collaborator', 1],
+      [3, 2],
+    ],
+  };
+
+  const PatternMap = Maps[screenSize as keyof typeof Maps];
 
   const setContent = (col: string | number) => {
     switch (col) {
@@ -19,7 +78,7 @@ export default function Hero() {
         return <Circle />;
 
       case 3:
-        return <ContactButton>CONTACT US</ContactButton>;
+        return <ContactButton>Contact us</ContactButton>;
 
       default:
         return col;
@@ -29,17 +88,17 @@ export default function Hero() {
   return (
     <HeroSection>
       <HeroContainer>
-        {PatternMap.map((row, i) => {
+        {PatternMap.map((col, i) => {
           return (
-            <ColumnDiv key={i} i={i}>
-              {row.map((col, j) => {
+            <RowDiv key={i} isLastRow={i === PatternMap.length - 1}>
+              {col.map((row, j) => {
                 return (
-                  <CellDiv key={j} className={`row ${j}`}>
-                    {setContent(col)}
+                  <CellDiv key={j} isLastCol={j === col.length - 1}>
+                    {setContent(row)}
                   </CellDiv>
                 );
               })}
-            </ColumnDiv>
+            </RowDiv>
           );
         })}
       </HeroContainer>
@@ -48,13 +107,15 @@ export default function Hero() {
 }
 
 const HeroContainer = styled.div`
-  height: 100vh;
+  height: calc(100vh - 4rem);
   width: 100%;
   max-width: 1440px;
 
   display: flex;
+  flex-direction: column;
 
-  margin: 4rem 1rem 0 1rem;
+  margin: 4rem 1rem 1rem;
+  padding-bottom: 1rem;
 `;
 
 const HeroSection = styled.div`
@@ -62,20 +123,22 @@ const HeroSection = styled.div`
   justify-content: center;
 `;
 
-interface ColumnProps {
-  i: number;
+interface RowProps {
+  isLastRow: boolean;
 }
 
-const ColumnDiv = styled.div<ColumnProps>`
+const RowDiv = styled.div<RowProps>`
   display: flex;
-  flex-direction: column;
-  flex: ${props => (props.i === 5 ? 0 : 1)};
-
-  ${props => (props.i === 1 || props.i === 2 ? '@media (max-width: 768px) {display: none;}' : '')}
+  gap: 2rem;
+  flex: ${props => (props.isLastRow ? 0 : 1)};
 `;
 
-const CellDiv = styled.div`
-  flex: 1;
+interface CellProps {
+  isLastCol: boolean;
+}
+
+const CellDiv = styled.div<CellProps>`
+  flex: ${props => (props.isLastCol ? 0 : 1)};
 
   font-family: 'IBM Plex Sans', sans-serif;
   font-weight: Medium;
@@ -124,5 +187,3 @@ function Circle() {
     </svg>
   );
 }
-
-// const GridIcon = styled.svg``;
