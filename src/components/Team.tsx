@@ -54,7 +54,7 @@ function Team() {
             </ImageBox>
             <Heading>Mimmi Collin</Heading>
             <BasicText>
-              Mimmi - a passionate artist, programmer, writer, and creator. She specializes in
+              Mimmi is a passionate artist, programmer, writer, and creator specializing in
               crafting stunning websites and captivating games.
             </BasicText>
             <MonoText>Frontend developer</MonoText>
