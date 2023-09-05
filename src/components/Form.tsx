@@ -35,21 +35,21 @@ export function ContactForm() {
       <Form>
         <InputFieldWrapper>
           <InputLabel htmlFor='name'>
-            <span>Name:</span>
+            <span>Name: *</span>
             <ErrorMessage name='name' component='div' />
           </InputLabel>
           <Field as={InputElement} type='text' id='name' name='name' />
         </InputFieldWrapper>
         <InputFieldWrapper>
           <InputLabel htmlFor='email'>
-            <span>Email:</span>
+            <span>Email: *</span>
             <ErrorMessage name='email' component='div' />
           </InputLabel>
           <Field as={InputElement} type='email' id='email' name='email' />
         </InputFieldWrapper>
         <InputFieldWrapper>
           <InputLabel htmlFor='contactPerson'>
-            <span>Which of us would you like to speak to?</span>
+            <span>Which of us would you like to speak to? *</span>
             <ErrorMessage name='contactPerson' component='div' />
           </InputLabel>
           <Field as={DropdownElement} id='contactPerson' name='contactPerson'>
@@ -62,7 +62,7 @@ export function ContactForm() {
         </InputFieldWrapper>
         <InputFieldWrapper>
           <InputLabel>
-            <span>Message:</span>
+            <span>Message: *</span>
             <ErrorMessage name='message' component='div' />
           </InputLabel>
           <Field as={TextAreaElement} type='textarea' id='message' name='message' />
