@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { SectionHeadline } from './SectionHeadline';
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -7,86 +8,128 @@ interface Props {
 function Team({ navRef }: Props) {
   return (
     <Container ref={navRef}>
-      <h2 style={{ textAlign: 'center', fontSize: '2rem' }}>MEET THE TEAM</h2>
-      <TeamSection>
-        <TeamSectionBox>
-          <TeamMemberBox>
-            <ImageBox>
-              <ImageCircle />
-              <img style={{ position: 'absolute', top: '2rem', left: '1rem' }} src='jennifer.svg' />
-            </ImageBox>
-            <Heading>Jennifer Techel</Heading>
-            <BasicText>
-              Meet Jennifer, a passionate and creative frontend developer with a penchant for
-              crafting engaging and user-centric digital experiences.
-            </BasicText>
-            <MonoText>Frontend developer</MonoText>
-            <MonoText>jennifer@sage.com</MonoText>
-          </TeamMemberBox>
-          <TeamMemberBox>
-            <ImageBox>
-              <ImageCircle />
-              <img style={{ position: 'absolute', top: '2rem', left: '1rem' }} src='caisa.svg' />
-            </ImageBox>
-            <Heading>Caisa Köhlin</Heading>
-            <BasicText>
-              Caisa is a dynamic front-end developer committed to blending cutting-edge design with
-              seamless functionality.
-            </BasicText>
-            <MonoText>Frontend developer</MonoText>
-            <MonoText>caisa@sage.com</MonoText>
-          </TeamMemberBox>
-        </TeamSectionBox>
-        <TeamSectionBox>
-          <TeamMemberBox>
-            <ImageBox>
-              <ImageCircle />
-              <img style={{ position: 'absolute', top: '2rem', left: '1rem' }} src='nat.svg' />
-            </ImageBox>
-            <Heading>Nathanael Blackbourn</Heading>
-            <BasicText>
-              Medium between man and machine, in his work Nathanael enriches the human experience
-              and deepens our connection with technology.
-            </BasicText>
-            <MonoText>Frontend developer</MonoText>
-            <MonoText>nathanael@sage.com</MonoText>
-          </TeamMemberBox>
-          <TeamMemberBox>
-            <ImageBox>
-              <ImageCircle />
-              <img style={{ position: 'absolute', top: '0.75rem' }} src='mimmi.svg' />
-            </ImageBox>
-            <Heading>Mimmi Collin</Heading>
-            <BasicText>
-              Mimmi is a passionate artist, programmer, writer, and creator specializing in crafting
-              stunning websites and captivating games.
-            </BasicText>
-            <MonoText>Frontend developer</MonoText>
-            <MonoText>mimmi@sage.com</MonoText>
-          </TeamMemberBox>
-        </TeamSectionBox>
-      </TeamSection>
+      <ContentWrapper>
+        <SectionHeadline $color='white' title='MEET THE TEAM'></SectionHeadline>
+        <TeamSection>
+          <TeamSectionBox>
+            <TeamMemberBox>
+              <ImageBox>
+                <ImageCircle />
+                <img
+                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
+                  src='jennifer.svg'
+                />
+              </ImageBox>
+              <Heading>Jennifer Techel</Heading>
+              <BasicText>
+                Meet Jennifer, a passionate and creative frontend developer with a penchant for
+                crafting engaging and user-centric digital experiences.
+              </BasicText>
+              <MonoText>Frontend developer</MonoText>
+              <MonoText>jennifer@sage.com</MonoText>
+            </TeamMemberBox>
+            <TeamMemberBox>
+              <ImageBox>
+                <ImageCircle />
+                <img
+                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '11.3rem' }}
+                  src='caisa.svg'
+                />
+              </ImageBox>
+              <Heading>Caisa Köhlin</Heading>
+              <BasicText>
+                Caisa is a dynamic front-end developer committed to blending cutting-edge design
+                with seamless functionality.
+              </BasicText>
+              <MonoText>Frontend developer</MonoText>
+              <MonoText>caisa@sage.com</MonoText>
+            </TeamMemberBox>
+          </TeamSectionBox>
+          <TeamSectionBox>
+            <TeamMemberBox>
+              <ImageBox>
+                <ImageCircle />
+                <img
+                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '11.3rem' }}
+                  src='nat.svg'
+                />
+              </ImageBox>
+              <Heading>Nathanael Blackbourn</Heading>
+              <BasicText>
+                Medium between man and machine, in his work Nathanael enriches the human experience
+                and deepens our connection with technology.
+              </BasicText>
+              <MonoText>Frontend developer</MonoText>
+              <MonoText>nathanael@sage.com</MonoText>
+            </TeamMemberBox>
+            <TeamMemberBox>
+              <ImageBox>
+                <ImageCircle />
+                <img
+                  style={{ position: 'absolute', top: '0.75rem', width: '11rem' }}
+                  src='mimmi.svg'
+                />
+              </ImageBox>
+              <Heading>Mimmi Collin</Heading>
+              <BasicText>
+                Mimmi is a passionate artist, programmer, writer, and creator specializing in
+                crafting stunning websites and captivating games.
+              </BasicText>
+              <MonoText>Frontend developer</MonoText>
+              <MonoText>mimmi@sage.com</MonoText>
+            </TeamMemberBox>
+          </TeamSectionBox>
+        </TeamSection>
+      </ContentWrapper>
     </Container>
   );
 }
 
 const Container = styled.div`
-  width: 100vw;
-  background: black;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
   text-align: left;
   color: white;
-  padding: 2rem 0 6rem 0;
+  height: 100vh;
+  min-height: 700px;
+  @media (max-width: 1024px) {
+    height: auto;
+    min-height: auto;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  max-width: 1440px;
+  width: 100%;
+  height: 100%;
+  padding: 6rem 0rem;
+  gap: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  @media (max-width: 1024px) {
+    padding: 2rem 0rem;
+  }
+  @media (max-width: 768px) {
+    padding: 1.5rem 0rem;
+  }
 `;
 
 const TeamSection = styled.div`
   display: flex;
-  height: 100%;
+  height: auto;
   flex-direction: column;
   @media (min-width: 768px) {
     flex-direction: column;
+    height: auto;
   }
   @media (min-width: 1024px) {
     flex-direction: row;
+    height: 30rem;
   }
 `;
 
@@ -104,21 +147,22 @@ const TeamSectionBox = styled.div`
 
 const ImageCircle = styled.div`
   border-radius: 50%;
-  border: #eca579 0.75rem solid;
-  height: 11rem;
-  width: 11rem;
+  border: #eca579 1.4rem solid;
+  height: 13rem;
+  width: 13rem;
+  @media (max-width: 768px) {
+  }
 `;
 
 const TeamMemberBox = styled.div`
+  padding: 1rem 0.9rem;
   color: white;
-  padding: 0 2rem 2rem 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: right;
   width: 100%;
   @media (min-width: 768px) {
-    padding: 0 4rem 2rem 4rem;
     width: 50%;
   }
   &:hover ${ImageCircle} {
@@ -129,6 +173,7 @@ const TeamMemberBox = styled.div`
 const ImageBox = styled.div`
   position: relative;
   align-self: center;
+  padding-bottom: 0.8rem;
 `;
 
 const Heading = styled.h3`

@@ -14,13 +14,13 @@ const StyledNavLink = styled.span<StyledNavLinkProps>`
 interface NavLinkProps {
   $link: string;
   color: string;
-  navRef: React.RefObject<HTMLDivElement>;
+  navRef?: React.RefObject<HTMLDivElement>;
 }
 
 export function NavLink({ $link, color, navRef }: NavLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
     e.preventDefault();
-    navRef.current?.scrollIntoView({ behavior: 'smooth' });
+    navRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

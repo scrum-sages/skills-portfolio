@@ -101,7 +101,11 @@ const SocialMediaLinkContainer = styled.div`
   }
 `;
 
-const Footer = () => {
+interface FooterProps {
+  navRefs: { [key: string]: React.RefObject<HTMLDivElement> };
+}
+
+const Footer = ({ navRefs }: FooterProps) => {
   return (
     <FooterWrapper>
       <Container>
@@ -111,7 +115,12 @@ const Footer = () => {
           </LogoContainer>
           <LinkContainer>
             {headerLinks.map((link, index) => (
-              <NavLink key={index} $link={link} color={headerTextColor} />
+              <NavLink
+                key={index}
+                $link={link}
+                color={headerTextColor}
+                navRef={navRefs[link.toLowerCase()]}
+              />
             ))}
           </LinkContainer>
           <LinkContainer>

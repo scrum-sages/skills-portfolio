@@ -14,6 +14,7 @@ export function SectionHeadline(props: SectionHeadlineProps) {
 const StyledHeadline = styled.h2`
   font-size: 2rem;
   margin: 0.6rem 0rem;
+  margin-left: 0.5rem;
   color: ${props => props.color};
   @media (min-width: 768px) {
     font-size: 2.4rem;

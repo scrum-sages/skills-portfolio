@@ -69,10 +69,10 @@ export function ContactForm() {
         </InputFieldWrapper>
         <Button
           type='submit'
-          text='SEND'
+          $text='SEND'
           width='100%'
           color='black'
-          backgroundColor='#eca579'
+          $backgroundColor='#eca579'
         ></Button>
       </Form>
     </Formik>

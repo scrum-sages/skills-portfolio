@@ -24,7 +24,7 @@ function App() {
       <Projects navRef={navRefs.projects} />
       <Skills navRef={navRefs.skills} />
       <ContactSection navRef={navRefs.contact} />
-      <Footer />
+      <Footer navRefs={navRefs} />
     </>
   );
 }

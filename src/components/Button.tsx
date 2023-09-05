@@ -2,16 +2,16 @@ import styled from 'styled-components';
 
 interface ButtonProps {
   type: string;
-  text: string;
+  $text: string;
   width?: string;
   color?: string;
-  backgroundColor?: string;
+  $backgroundColor?: string;
 }
 
 const StyledButton = styled.button<ButtonProps>`
   width: ${({ width }) => width};
   color: ${({ color }) => color};
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ $backgroundColor }) => $backgroundColor};
   padding: 0.6rem;
   border: none;
   transition: 0.2s ease-in-out;
@@ -28,12 +28,12 @@ function Button(props: ButtonProps) {
   return (
     <StyledButton
       type={props.type}
-      text={props.text}
+      $text={props.$text}
       color={props.color}
       width={props.width}
-      backgroundColor={props.backgroundColor}
+      $backgroundColor={props.$backgroundColor}
     >
-      <p>{props.text}</p>
+      <p>{props.$text}</p>
     </StyledButton>
   );
 }
