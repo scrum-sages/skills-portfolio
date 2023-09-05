@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 export default function Map() {
   return (
-    <Wrapper apiKey={'AIzaSyB7eE24L0wyl9bHA4MF8HDG_EllOkLyMmA'}>
+    <Wrapper apiKey={import.meta.env.VITE_API_KEY}>
       <MapContainer />
     </Wrapper>
   );
