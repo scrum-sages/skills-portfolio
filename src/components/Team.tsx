@@ -105,8 +105,8 @@ const ContentWrapper = styled.div`
   max-width: 1400px;
   width: 100%;
   height: 100%;
-  padding: 6rem 0rem;
-  gap: 0.8rem;
+  align-items: center;
+  padding: 0.5rem 0rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

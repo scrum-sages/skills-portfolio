@@ -46,7 +46,7 @@ const HeroSection = styled.div`
   justify-content: center;
   align-items: center;
 
-  height: 95vh;
+  height: 90vh;
 `;
 
 const LeftSection = styled.div`
