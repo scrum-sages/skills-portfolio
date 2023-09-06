@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { SectionHeadline } from './SectionHeadline';
+import { TeamMembers } from './TeamData';
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -12,72 +13,21 @@ function Team({ navRef }: Props) {
         <SectionHeadline $color='white' title='MEET THE TEAM'></SectionHeadline>
         <TeamSection>
           <TeamSectionBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
-                  src='jennifer.svg'
-                />
-              </ImageBox>
-              <Heading>Jennifer Techel</Heading>
-              <BasicText>
-                Meet Jennifer, a passionate and creative frontend developer with a penchant for
-                crafting engaging and user-centric digital experiences.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>jennifer@sage.com</MonoText>
-            </TeamMemberBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '11.3rem' }}
-                  src='caisa.svg'
-                />
-              </ImageBox>
-              <Heading>Caisa Köhlin</Heading>
-              <BasicText>
-                Caisa is a dynamic front-end developer committed to blending cutting-edge design
-                with seamless functionality.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>caisa@sage.com</MonoText>
-            </TeamMemberBox>
-          </TeamSectionBox>
-          <TeamSectionBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '11.3rem' }}
-                  src='nat.svg'
-                />
-              </ImageBox>
-              <Heading>Nathanael Blackbourn</Heading>
-              <BasicText>
-                Medium between man and machine, in his work Nathanael enriches the human experience
-                and deepens our connection with technology.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>nathanael@sage.com</MonoText>
-            </TeamMemberBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '0.75rem', width: '11rem' }}
-                  src='mimmi.svg'
-                />
-              </ImageBox>
-              <Heading>Mimmi Collin</Heading>
-              <BasicText>
-                Mimmi is a passionate artist, programmer, writer, and creator specializing in
-                crafting stunning websites and captivating games.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>mimmi@sage.com</MonoText>
-            </TeamMemberBox>
+            {TeamMembers.map((team, index) => (
+              <TeamMemberBox key={index}>
+                <ImageBox>
+                  <ImageCircle />
+                  <img
+                    style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
+                    src={team.imageURL}
+                  />
+                </ImageBox>
+                <Heading>{team.name}</Heading>
+                <BasicText>{team.bio}</BasicText>
+                <MonoText>{team.title}</MonoText>
+                <MonoText>{team.email}</MonoText>
+              </TeamMemberBox>
+            ))}
           </TeamSectionBox>
         </TeamSection>
       </ContentWrapper>
