@@ -14,6 +14,7 @@ const StyledButton = styled.button<ButtonProps>`
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   padding: 0.6rem;
   border: none;
+  border-radius: 2rem;
   transition: 0.2s ease-in-out;
   &:active {
     transform: scale(0.99);
