@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { ProjectList } from './ProjectData'; // Import your data file
+import { SectionHeadline } from './SectionHeadline';
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -8,38 +9,59 @@ interface Props {
 function Projects({ navRef }: Props) {
   return (
     <Container ref={navRef}>
-      <Heading>PROJECTS</Heading>
-      <ProjectSection>
-        {ProjectList.map((project, index) => (
-          <ProjectItem key={index}>
-            <Image src={project.imageURL} alt={project.title} />
-            <ProjectItemInner>
-              <h3>{project.title}</h3>
-              <p>{project.details}</p>
-              <Button as='a' href={project.website}>
-                VISIT SITE
-              </Button>
-            </ProjectItemInner>
-          </ProjectItem>
-        ))}
-      </ProjectSection>
+      <ContactWrapper>
+        <SectionHeadline $color='black' title='PROJECTS'></SectionHeadline>
+        <ProjectSection>
+          {ProjectList.map((project, index) => (
+            <ProjectItem key={index}>
+              <Image src={project.imageURL} alt={project.title} />
+              <ProjectItemInner>
+                <CardTitle>{project.title}</CardTitle>
+                <CardText>{project.details}</CardText>
+                <Button as='a' href={project.website}>
+                  VISIT SITE
+                </Button>
+              </ProjectItemInner>
+            </ProjectItem>
+          ))}
+        </ProjectSection>
+      </ContactWrapper>
     </Container>
   );
 }
 
-const Container = styled.div`
-  width: 100vw;
-  background: #f0eee8;
-  text-align: left;
-  padding: 2rem 0 6rem 0;
-
+const CardTitle = styled.h3`
+  margin: 0.5rem 0;
+`;
+const CardText = styled.p`
   @media (min-width: 1024px) {
-    padding: 2rem 2rem 6rem 2rem;
+    margin: 0;
   }
 `;
 
-const Heading = styled.h2`
-  padding-left: 2rem;
+const Container = styled.div`
+  width: 100%;
+  background: #f0eee8;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 1024px) {
+    height: 100vh;
+    align-items: center;
+    min-height: 850px;
+  }
+`;
+const ContactWrapper = styled.div`
+  max-width: 1440px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+  @media (min-width: 1024px) {
+    padding-top: 5%;
+  }
 `;
 
 const ProjectSection = styled.div`
@@ -47,13 +69,16 @@ const ProjectSection = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: flex-start;
+  @media (min-width: 1024px) {
+  }
 `;
 
 const ProjectItem = styled.div`
   width: 100%;
   height: 100%;
-  padding: 2rem;
+  padding: 1rem;
   flex-direction: column;
+  justify-content: space-between;
 
   @media (min-width: 768px) {
     width: 50%;
@@ -64,7 +89,19 @@ const ProjectItem = styled.div`
 `;
 
 const ProjectItemInner = styled.div`
-  flex: 1; /* This makes it take up all available vertical space */
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    height: 13rem;
+  }
+  @media (min-width: 1024px) {
+    height: 16rem;
+  }
+  @media (min-width: 1224px) {
+    height: 15rem;
+  }
 `;
 
 const Image = styled.img`
@@ -85,6 +122,7 @@ const Button = styled.a`
   border-radius: 2rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+  transition: 200ms ease-in;
   &:hover {
     border-color: #eca579;
     background: #eca579;
