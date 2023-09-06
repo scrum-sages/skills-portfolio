@@ -32,7 +32,7 @@ const Background = styled.div`
 `;
 const ContentWrapper = styled.div`
   width: 100%;
-  max-width: 1440px;
+  max-width: 1400px;
 `;
 
 const Flex = styled.div`

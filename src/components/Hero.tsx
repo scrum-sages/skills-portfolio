@@ -25,7 +25,7 @@ const HeroContainer = styled.div`
 
   height: clamp(20rem, 70vh, 100%);
   width: clamp(60rem, 70%, 100%);
-  max-width: 1440px;
+  max-width: 1400px;
 
   display: flex;
   justify-content: space-between;

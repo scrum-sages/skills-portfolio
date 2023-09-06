@@ -92,7 +92,7 @@ const StyledHeader = styled.header<StyledHeaderProps>`
 `;
 
 const HeaderContentWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   flex-shrink: 0;
   background: transparent;
   width: 100%;

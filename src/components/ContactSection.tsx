@@ -44,7 +44,7 @@ const Contact = styled.section`
   }
 `;
 const ContactWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   gap: 1rem;

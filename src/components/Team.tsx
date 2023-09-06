@@ -102,7 +102,7 @@ const Container = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   width: 100%;
   height: 100%;
   padding: 6rem 0rem;
