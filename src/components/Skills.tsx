@@ -16,8 +16,8 @@ import {
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { SkillsData, data } from './data';
 import SkillDetails from './SkillsDetails';
+import { SkillsData, data } from './data';
 
 const Background = styled.div`
   background: #eca579;
@@ -179,7 +179,13 @@ export default function Skills({ navRef }: Props) {
           <>
             <Flex>
               {displayData.map((item, index) => (
-                <Card key={index} onClick={() => setSelectedSkill(item)}>
+                <Card
+                  key={index}
+                  onClick={() => {
+                    setSelectedSkill(item);
+                    navRef.current!.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   {icons[item.icon]}
                   <Title>{item.title}</Title>
                 </Card>
