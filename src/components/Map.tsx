@@ -22,6 +22,7 @@ function MapContainer() {
 
   useEffect(() => {
     const map = new google.maps.Map(ref.current as HTMLElement, {
+      mapId: 'ee792371519b7a81',
       center: { lat: 57.710467953735744, lng: 11.994911438107 },
       zoom: 15,
     });
