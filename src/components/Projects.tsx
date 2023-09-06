@@ -64,7 +64,7 @@ const ProjectItem = styled.div`
 `;
 
 const ProjectItemInner = styled.div`
-  flex: 1; /* This makes it take up all available vertical space */
+  flex: 1;
 `;
 
 const Image = styled.img`
