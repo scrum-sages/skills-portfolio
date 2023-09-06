@@ -9,7 +9,7 @@ interface Props {
 function Projects({ navRef }: Props) {
   return (
     <Container ref={navRef}>
-      <ContactWrapper>
+      <ProjectWrapper>
         <SectionHeadline $color='black' title='PROJECTS'></SectionHeadline>
         <ProjectSection>
           {ProjectList.map((project, index) => (
@@ -25,7 +25,7 @@ function Projects({ navRef }: Props) {
             </ProjectItem>
           ))}
         </ProjectSection>
-      </ContactWrapper>
+      </ProjectWrapper>
     </Container>
   );
 }
@@ -52,8 +52,8 @@ const Container = styled.div`
     min-height: 800px;
   }
 `;
-const ContactWrapper = styled.div`
-  max-width: 1400px;
+const ProjectWrapper = styled.div`
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;

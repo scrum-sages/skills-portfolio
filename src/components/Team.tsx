@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { SectionHeadline } from './SectionHeadline';
+import { TeamMembers } from './TeamData';
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -11,74 +12,21 @@ function Team({ navRef }: Props) {
       <ContentWrapper>
         <SectionHeadline $color='white' title='MEET THE TEAM'></SectionHeadline>
         <TeamSection>
-          <TeamSectionBox>
-            <TeamMemberBox>
+          {TeamMembers.map((team, index) => (
+            <TeamMemberBox key={index}>
               <ImageBox>
                 <ImageCircle />
                 <img
                   style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
-                  src='jennifer.svg'
+                  src={team.imageURL}
                 />
               </ImageBox>
-              <Heading>Jennifer Techel</Heading>
-              <BasicText>
-                Meet Jennifer, a passionate and creative frontend developer with a penchant for
-                crafting engaging and user-centric digital experiences.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>jennifer@sage.com</MonoText>
+              <Heading>{team.name}</Heading>
+              <BasicText>{team.bio}</BasicText>
+              <MonoText>{team.title}</MonoText>
+              <MonoText>{team.email}</MonoText>
             </TeamMemberBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '11.3rem' }}
-                  src='caisa.svg'
-                />
-              </ImageBox>
-              <Heading>Caisa Köhlin</Heading>
-              <BasicText>
-                Caisa is a dynamic front-end developer committed to blending cutting-edge design
-                with seamless functionality.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>caisa@sage.com</MonoText>
-            </TeamMemberBox>
-          </TeamSectionBox>
-          <TeamSectionBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '11.3rem' }}
-                  src='nat.svg'
-                />
-              </ImageBox>
-              <Heading>Nathanael Blackbourn</Heading>
-              <BasicText>
-                Medium between man and machine, in his work Nathanael enriches the human experience
-                and deepens our connection with technology.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>nathanael@sage.com</MonoText>
-            </TeamMemberBox>
-            <TeamMemberBox>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '0.75rem', width: '11rem' }}
-                  src='mimmi.svg'
-                />
-              </ImageBox>
-              <Heading>Mimmi Collin</Heading>
-              <BasicText>
-                Mimmi is a passionate artist, programmer, writer, and creator specializing in
-                crafting stunning websites and captivating games.
-              </BasicText>
-              <MonoText>Frontend developer</MonoText>
-              <MonoText>mimmi@sage.com</MonoText>
-            </TeamMemberBox>
-          </TeamSectionBox>
+          ))}
         </TeamSection>
       </ContentWrapper>
     </Container>
@@ -88,10 +36,7 @@ function Team({ navRef }: Props) {
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: black;
-  text-align: left;
   color: white;
   height: calc(100vh);
   min-height: 700px;
@@ -131,19 +76,6 @@ const TeamSection = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     height: 30rem;
-    padding-top: 8vh;
-  }
-`;
-
-const TeamSectionBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    width: 50%;
   }
 `;
 
@@ -166,8 +98,14 @@ const TeamMemberBox = styled.div`
   width: 100%;
 
   @media (min-width: 768px) {
+    height: auto;
     width: 50%;
   }
+  @media (min-width: 1024px) {
+    height: 30rem;
+    width: 25%;
+  }
+
   &:hover ${ImageCircle} {
     transition: 100ms ease-in;
     background-color: #eca579;
@@ -177,7 +115,7 @@ const TeamMemberBox = styled.div`
 const ImageBox = styled.div`
   position: relative;
   align-self: center;
-  padding-bottom: 0.8rem;
+  padding-bottom: 1rem;
 `;
 
 const Heading = styled.h3`
