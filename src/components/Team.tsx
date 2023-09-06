@@ -93,7 +93,7 @@ const Container = styled.div`
   background-color: black;
   text-align: left;
   color: white;
-  height: 100vh;
+  height: calc(100vh);
   min-height: 700px;
   @media (max-width: 1024px) {
     height: auto;
@@ -102,14 +102,15 @@ const Container = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   width: 100%;
   height: 100%;
-  padding: 6rem 0rem;
-  gap: 0.8rem;
+  align-items: center;
+  padding: 0.5rem 0rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 3rem;
   height: 100%;
   @media (max-width: 1024px) {
     padding: 2rem 0rem;
@@ -130,6 +131,7 @@ const TeamSection = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     height: 30rem;
+    padding-top: 8vh;
   }
 `;
 
