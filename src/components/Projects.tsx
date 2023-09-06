@@ -59,6 +59,7 @@ const ProjectWrapper = styled.div`
   gap: 0.5rem;
   width: 100%;
   height: 100%;
+
   @media (min-width: 1024px) {
     padding-top: 2rem;
   }
@@ -68,23 +69,18 @@ const ProjectSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-start;
-  @media (min-width: 1024px) {
-  }
 `;
 
 const ProjectItem = styled.div`
   width: 100%;
   height: 100%;
   padding: 1rem;
-  flex-direction: column;
-  justify-content: space-between;
 
   @media (min-width: 768px) {
     width: 50%;
   }
   @media (min-width: 1024px) {
-    width: 24%;
+    width: 25%;
   }
 `;
 
