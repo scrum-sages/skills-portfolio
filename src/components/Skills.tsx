@@ -27,7 +27,7 @@ const Background = styled.div`
   justify-content: center;
   width: 100%;
   @media (max-width: 1024px) {
-    padding: 4rem 0rem;
+    padding: 1rem 0rem;
   }
 `;
 const ContentWrapper = styled.div`
