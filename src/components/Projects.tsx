@@ -49,7 +49,7 @@ const Container = styled.div`
   @media (min-width: 1024px) {
     height: 100vh;
     align-items: center;
-    min-height: 800px;
+    min-height: 850px;
   }
 `;
 const ContactWrapper = styled.div`

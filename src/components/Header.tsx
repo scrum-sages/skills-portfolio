@@ -79,13 +79,16 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   right: 0;
   position: fixed;
   background: ${props => props.$background};
-  height: ${props => (props.$expanded ? '20rem' : '5rem')};
+  height: ${props => (props.$expanded ? '20rem' : '3rem')};
   display: flex;
   align-items: center;
   justify-content: center;
   transition: height 0.3s ease-in-out;
   flex-direction: column;
   border-bottom: 1px solid black;
+  @media (min-width: 1024px) {
+    height: ${props => (props.$expanded ? '20rem' : '5rem')};
+  }
 `;
 
 const HeaderContentWrapper = styled.div`
@@ -93,10 +96,13 @@ const HeaderContentWrapper = styled.div`
   flex-shrink: 0;
   background: transparent;
   width: 100%;
-  height: 5rem;
+  height: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 1024px) {
+    height: 5rem;
+  }
 `;
 
 const HeaderNavigationWrapper = styled.nav`
