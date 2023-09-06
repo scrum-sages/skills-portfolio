@@ -15,25 +15,13 @@ export default function CallToAction({ contactRef }: Props) {
 }
 
 const Container = styled.div`
-  position: absolute;
-  bottom: 3rem;
-  right: 3rem;
-
   display: flex;
   flex-direction: column;
-  gap: 1rem;
 
-  background-color: #f0eee8;
-
-  width: clamp(300px, 30vw, 100%);
-  padding: 0 1rem 1rem 1rem;
-
-  @media (max-width: 768px) {
-    bottom: 1rem;
-    right: 1rem;
-  }
+  width: 100%;
 
   h3 {
+    font-size: 1.5rem;
     font-weight: 400;
   }
 `;

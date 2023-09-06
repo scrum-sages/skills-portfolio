@@ -19,7 +19,7 @@ export function Header({ navRefs }: HeaderProps) {
   const [extendNavbar, setExtendNavbar] = useState(false);
 
   //** Ändra denna färg för att ändra färg på både header samt drawer samtidigt.*/
-  const background = 'white';
+  const background = '#f0eee8';
 
   const handleBurgerClick = () => {
     setBurgerClicked(!burgerClicked);
@@ -86,6 +86,9 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   transition: height 0.3s ease-in-out;
   flex-direction: column;
   border-bottom: 1px solid black;
+  @media (min-width: 1024px) {
+    height: ${props => (props.$expanded ? '20rem' : '5rem')};
+  }
 `;
 
 const HeaderContentWrapper = styled.div`
@@ -97,6 +100,9 @@ const HeaderContentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: 1024px) {
+    height: 5rem;
+  }
 `;
 
 const HeaderNavigationWrapper = styled.nav`

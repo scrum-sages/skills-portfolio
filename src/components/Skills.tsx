@@ -16,14 +16,19 @@ import {
 } from '@tabler/icons-react';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { SectionHeadline } from './SectionHeadline';
 import SkillDetails from './SkillsDetails';
 import { SkillsData, data } from './data';
 
 const Background = styled.div`
   background: #eca579;
+  padding: 6rem 0rem;
   display: flex;
   justify-content: center;
   width: 100%;
+  @media (max-width: 1024px) {
+    padding: 4rem 0rem;
+  }
 `;
 const ContentWrapper = styled.div`
   width: 100%;
@@ -77,6 +82,11 @@ const Card = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+  }
 
   @media (max-width: 768px) {
     margin: 1rem;
@@ -175,6 +185,7 @@ export default function Skills({ navRef }: Props) {
   return (
     <Background ref={navRef}>
       <ContentWrapper>
+        <SectionHeadline $color='black' title='SKILLS'></SectionHeadline>
         {!selectedSkill ? (
           <>
             <Flex>

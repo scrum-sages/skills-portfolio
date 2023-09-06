@@ -6,20 +6,19 @@ interface Size {
 }
 
 const sizes: Size[] = [
-  // { name: 'xs', width: 480 },
-  { name: 'sm', width: 640 },
-  { name: 'md', width: 768 },
   { name: 'lg', width: 1024 },
+  { name: 'md', width: 624 },
 ];
 
 const findClosest = () => {
-  return sizes.find(breakpoint => breakpoint.width > window.innerWidth)?.name || 'lg';
+  return sizes.find(breakpoint => breakpoint.width < window.innerWidth)?.name || 'sm';
 };
 
 export default function useClosestMedia(): string {
   const [closest, setClosest] = useState<string>(findClosest());
 
   useEffect(() => {
+    console.log(closest);
     const handler = () => {
       setClosest(findClosest());
     };
