@@ -83,6 +83,11 @@ const Card = styled.div`
   justify-content: center;
   cursor: pointer;
 
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+  }
+
   @media (max-width: 768px) {
     margin: 1rem;
   }
