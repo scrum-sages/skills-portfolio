@@ -11,7 +11,7 @@ export default function Hero({ contactRef }: Props) {
     <HeroSection>
       <HeroContainer>
         <LeftSection>
-          <Headline>Developing the web with widsom and expertise.</Headline>
+          <Headline>Developing the web with wisdom and expertise.</Headline>
           <CallToAction contactRef={contactRef} />
         </LeftSection>
         <HeroPattern />
