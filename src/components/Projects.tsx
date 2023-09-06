@@ -53,7 +53,7 @@ const Container = styled.div`
   }
 `;
 const ContactWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
