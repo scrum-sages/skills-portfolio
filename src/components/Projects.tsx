@@ -47,20 +47,20 @@ const Container = styled.div`
   justify-content: center;
 
   @media (min-width: 1024px) {
-    height: 100vh;
+    height: calc(100vh - 8vh);
     align-items: center;
-    min-height: 850px;
+    min-height: 800px;
   }
 `;
 const ContactWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
   height: 100%;
   @media (min-width: 1024px) {
-    padding-top: 5%;
+    padding-top: 2rem;
   }
 `;
 
@@ -84,7 +84,7 @@ const ProjectItem = styled.div`
     width: 50%;
   }
   @media (min-width: 1024px) {
-    width: 25%;
+    width: 24%;
   }
 `;
 
@@ -100,7 +100,7 @@ const ProjectItemInner = styled.div`
     height: 16rem;
   }
   @media (min-width: 1224px) {
-    height: 15rem;
+    height: 13rem;
   }
 `;
 

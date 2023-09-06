@@ -39,12 +39,12 @@ const Contact = styled.section`
   background: black;
   justify-content: center;
   @media (min-width: 768px) {
-    height: 100vh;
+    height: calc(100vh - 4vh);
     min-height: 44rem;
   }
 `;
 const ContactWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
