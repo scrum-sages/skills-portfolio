@@ -34,7 +34,9 @@ const CardTitle = styled.h3`
   margin: 0.5rem 0;
 `;
 const CardText = styled.p`
-  margin: 0;
+  @media (min-width: 1024px) {
+    margin: 0;
+  }
 `;
 
 const Container = styled.div`
@@ -91,6 +93,9 @@ const ProjectItemInner = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media (min-width: 768px) {
+    height: 13rem;
+  }
   @media (min-width: 1024px) {
     height: 16rem;
   }

@@ -12,10 +12,18 @@ const StyledButton = styled.button<ButtonProps>`
   width: ${({ width }) => width};
   color: ${({ color }) => color};
   background-color: ${({ $backgroundColor }) => $backgroundColor};
-  padding: 0.6rem;
-  border: none;
+  background: none;
+  text-decoration: none;
+  color: white;
+  border: white 1px solid;
   border-radius: 2rem;
-  transition: 0.2s ease-in-out;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  transition: 200ms ease-in;
+  &:hover {
+    border-color: #eca579;
+    background: #eca579;
+  }
   &:active {
     transform: scale(0.99);
   }
