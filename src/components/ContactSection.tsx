@@ -1,18 +1,31 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect } from 'react';
 import styled from 'styled-components';
 import Address from './Address';
 import { ContactForm } from './Form';
 import Map from './Map';
 import { SectionHeadline } from './SectionHeadline';
+import { fadeIn } from './animation';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
 }
 
 export function ContactSection({ navRef }: Props) {
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      fadeIn({ parent: '.parent', child: '.animate-text' });
+    });
+    return () => ctx.revert();
+  }, []);
+
   return (
     <Contact ref={navRef}>
-      <ContactWrapper>
-        <ContactBoxSection>
+      <ContactWrapper className='parent'>
+        <ContactBoxSection className='animate-text'>
           <SectionHeadline $color='white' title='FIND US'></SectionHeadline>
           <ContactSectionWrapper>
             <Address></Address>
@@ -21,7 +34,7 @@ export function ContactSection({ navRef }: Props) {
             </MapWrapper>
           </ContactSectionWrapper>
         </ContactBoxSection>
-        <ContactBoxSection>
+        <ContactBoxSection className='animate-text'>
           <SectionHeadline $color='white' title='TALK TO US'></SectionHeadline>
           <ContactSectionWrapper>
             <ContactForm></ContactForm>

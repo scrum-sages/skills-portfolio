@@ -1,5 +1,8 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { styled } from 'styled-components';
 import { SectionHeadline } from './SectionHeadline';
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
