@@ -12,11 +12,26 @@ export function fadeIn({ parent, child }: FadeInParams) {
     y: -40, // Start position above the slide section
     opacity: 0, // Start with 0 opacity
     duration: 0.7,
-    stagger: 0.3,
+    stagger: 0.4,
+    ease: "power1.out",
     scrollTrigger: {
       trigger: parent,
       start: 'top 70%',
-      end: 'top 40%',
+      end: 'top bottom',
+      toggleActions: 'play none none reset',
+    },
+  });
+}
+export function slowFade({ parent, child }: FadeInParams) {
+  gsap.from(child, {
+    y: -60, // Start position above the slide section
+    opacity: 0, // Start with 0 opacity
+    duration: 1.2,
+    ease: "power1.out",
+    scrollTrigger: {
+      trigger: parent,
+      start: 'top 70%',
+      end: 'top bottom',
       toggleActions: 'play none none reset',
     },
   });
@@ -26,14 +41,29 @@ export function scaleUp({ parent, child }: FadeInParams) {
   gsap.from(child, {
     y: -40, // Start position above the slide section
     opacity: 0, // Start with 0 opacity
-    duration: 0.7,
+    duration: 0.6,
     scale:0,
-    rotate:10,
-    stagger: 0.4,
+    stagger: 0.2,
     scrollTrigger: {
       trigger: parent,
       start: 'top 70%',
-      end: 'top 40%',
+      end: 'top bottom',
+      toggleActions: 'play none none reset',
+    },
+  });
+}
+
+export function bounceIn({ parent, child }: FadeInParams) {
+  gsap.from(child, {
+    y: -10, // Start position above the slide section
+    opacity: 0, // Start with 0 opacity
+    duration: 0.6,
+    stagger: 0.2,
+    ease: 'elastic.out(1, 0.3)',
+    scrollTrigger: {
+      trigger: parent,
+      start: 'top 70%',
+      end: 'top bottom',
       toggleActions: 'play none none reset',
     },
   });

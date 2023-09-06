@@ -13,9 +13,9 @@ function Team({ navRef }: Props) {
     <Container ref={navRef}>
       <ContentWrapper>
         <SectionHeadline $color='white' title='MEET THE TEAM'></SectionHeadline>
-        <TeamSection>
+        <TeamSection className='team-parent'>
           <TeamSectionBox>
-            <TeamMemberBox>
+            <TeamMemberBox className='team-child'>
               <ImageBox>
                 <ImageCircle />
                 <img
@@ -31,7 +31,7 @@ function Team({ navRef }: Props) {
               <MonoText>Frontend developer</MonoText>
               <MonoText>jennifer@sage.com</MonoText>
             </TeamMemberBox>
-            <TeamMemberBox>
+            <TeamMemberBox className='team-child'>
               <ImageBox>
                 <ImageCircle />
                 <img
@@ -49,7 +49,7 @@ function Team({ navRef }: Props) {
             </TeamMemberBox>
           </TeamSectionBox>
           <TeamSectionBox>
-            <TeamMemberBox>
+            <TeamMemberBox className='team-child'>
               <ImageBox>
                 <ImageCircle />
                 <img
@@ -65,7 +65,7 @@ function Team({ navRef }: Props) {
               <MonoText>Frontend developer</MonoText>
               <MonoText>nathanael@sage.com</MonoText>
             </TeamMemberBox>
-            <TeamMemberBox>
+            <TeamMemberBox className='team-child'>
               <ImageBox>
                 <ImageCircle />
                 <img

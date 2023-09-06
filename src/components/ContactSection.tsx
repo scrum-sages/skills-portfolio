@@ -1,12 +1,10 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useEffect } from 'react';
 import styled from 'styled-components';
 import Address from './Address';
 import { ContactForm } from './Form';
 import Map from './Map';
 import { SectionHeadline } from './SectionHeadline';
-import { fadeIn } from './animation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,13 +13,6 @@ interface Props {
 }
 
 export function ContactSection({ navRef }: Props) {
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      fadeIn({ parent: '.parent', child: '.animate-text' });
-    });
-    return () => ctx.revert();
-  }, []);
-
   return (
     <Contact ref={navRef}>
       <ContactWrapper className='parent'>
