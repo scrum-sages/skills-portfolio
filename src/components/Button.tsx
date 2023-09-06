@@ -23,6 +23,7 @@ const StyledButton = styled.button<ButtonProps>`
   &:hover {
     border-color: #eca579;
     background: #eca579;
+    color: black;
   }
   &:active {
     transform: scale(0.99);
