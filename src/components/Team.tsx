@@ -12,23 +12,21 @@ function Team({ navRef }: Props) {
       <ContentWrapper>
         <SectionHeadline $color='white' title='MEET THE TEAM'></SectionHeadline>
         <TeamSection>
-          <TeamSectionBox>
-            {TeamMembers.map((team, index) => (
-              <TeamMemberBox key={index}>
-                <ImageBox>
-                  <ImageCircle />
-                  <img
-                    style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
-                    src={team.imageURL}
-                  />
-                </ImageBox>
-                <Heading>{team.name}</Heading>
-                <BasicText>{team.bio}</BasicText>
-                <MonoText>{team.title}</MonoText>
-                <MonoText>{team.email}</MonoText>
-              </TeamMemberBox>
-            ))}
-          </TeamSectionBox>
+          {TeamMembers.map((team, index) => (
+            <TeamMemberBox key={index}>
+              <ImageBox>
+                <ImageCircle />
+                <img
+                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
+                  src={team.imageURL}
+                />
+              </ImageBox>
+              <Heading>{team.name}</Heading>
+              <BasicText>{team.bio}</BasicText>
+              <MonoText>{team.title}</MonoText>
+              <MonoText>{team.email}</MonoText>
+            </TeamMemberBox>
+          ))}
         </TeamSection>
       </ContentWrapper>
     </Container>
@@ -38,10 +36,7 @@ function Team({ navRef }: Props) {
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: black;
-  text-align: left;
   color: white;
   height: 100vh;
   min-height: 700px;
@@ -60,7 +55,6 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
   @media (max-width: 1024px) {
     padding: 2rem 0rem;
   }
@@ -71,19 +65,12 @@ const ContentWrapper = styled.div`
 
 const TeamSection = styled.div`
   display: flex;
-  height: auto;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: column;
-    height: auto;
-  }
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    height: 30rem;
-  }
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
 `;
 
-const TeamSectionBox = styled.div`
+/*const TeamSectionBox = styled.div`
   display: flex;
   flex-direction: column;
   @media (min-width: 768px) {
@@ -93,7 +80,7 @@ const TeamSectionBox = styled.div`
     flex-direction: row;
     width: 50%;
   }
-`;
+`;*/
 
 const ImageCircle = styled.div`
   border-radius: 50%;
@@ -114,8 +101,14 @@ const TeamMemberBox = styled.div`
   width: 100%;
 
   @media (min-width: 768px) {
+    height: auto;
     width: 50%;
   }
+  @media (min-width: 1024px) {
+    height: 30rem;
+    width: 25%;
+  }
+
   &:hover ${ImageCircle} {
     transition: 100ms ease-in;
     background-color: #eca579;
@@ -125,7 +118,7 @@ const TeamMemberBox = styled.div`
 const ImageBox = styled.div`
   position: relative;
   align-self: center;
-  padding-bottom: 0.8rem;
+  padding-bottom: 1rem;
 `;
 
 const Heading = styled.h3`
