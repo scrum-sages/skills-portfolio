@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { IconX } from '@tabler/icons-react';
 import { icons } from './Skills';
@@ -69,8 +69,23 @@ interface SkillsData {
 }
 
 const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
+      onBack();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <DetailsWrapper>
+    <DetailsWrapper ref={wrapperRef}>
       <Wrapper>
       <IconWrapper>{icons[data.icon]}</IconWrapper>
       <BackButton onClick={onBack}>
