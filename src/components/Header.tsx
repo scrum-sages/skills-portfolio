@@ -85,14 +85,13 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   justify-content: center;
   transition: height 0.3s ease-in-out;
   flex-direction: column;
-  border-bottom: 1px solid black;
   @media (min-width: 1024px) {
-    height: ${props => (props.$expanded ? '20rem' : '5rem')};
+    height: ${props => (props.$expanded ? '20rem' : '4rem')};
   }
 `;
 
 const HeaderContentWrapper = styled.div`
-  max-width: 1440px;
+  max-width: 1400px;
   flex-shrink: 0;
   background: transparent;
   width: 100%;
@@ -101,7 +100,7 @@ const HeaderContentWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   @media (min-width: 1024px) {
-    height: 5rem;
+    height: 4rem;
   }
 `;
 
