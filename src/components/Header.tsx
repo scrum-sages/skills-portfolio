@@ -19,7 +19,7 @@ export function Header({ navRefs }: HeaderProps) {
   const [extendNavbar, setExtendNavbar] = useState(false);
 
   //** Ändra denna färg för att ändra färg på både header samt drawer samtidigt.*/
-  const background = 'white';
+  const background = '#f0eee8';
 
   const handleBurgerClick = () => {
     setBurgerClicked(!burgerClicked);
@@ -79,7 +79,7 @@ const StyledHeader = styled.header<StyledHeaderProps>`
   right: 0;
   position: fixed;
   background: ${props => props.$background};
-  height: ${props => (props.$expanded ? '20rem' : '3rem')};
+  height: ${props => (props.$expanded ? '20rem' : '5rem')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,7 +93,7 @@ const HeaderContentWrapper = styled.div`
   flex-shrink: 0;
   background: transparent;
   width: 100%;
-  height: 3rem;
+  height: 5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
