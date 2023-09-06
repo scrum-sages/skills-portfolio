@@ -33,4 +33,8 @@ const StyledContactButton = styled.button`
     background-color: black;
     color: #f0eee8;
   }
+
+  @media (min-width: 1024px) {
+    font-size: 1.5rem;
+  }
 `;
