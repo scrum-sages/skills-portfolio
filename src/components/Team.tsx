@@ -76,21 +76,8 @@ const TeamSection = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     height: 30rem;
-    padding-top: 8vh;
   }
 `;
-
-/*const TeamSectionBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    width: 50%;
-  }
-`;*/
 
 const ImageCircle = styled.div`
   border-radius: 50%;
