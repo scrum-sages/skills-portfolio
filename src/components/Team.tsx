@@ -36,10 +36,12 @@ function Team({ navRef }: Props) {
 const Container = styled.div`
   width: 100%;
   display: flex;
+  justify-content: center;
   background-color: black;
   color: white;
   height: calc(100vh);
   min-height: 700px;
+
   @media (max-width: 1024px) {
     height: auto;
     min-height: auto;
@@ -50,13 +52,11 @@ const ContentWrapper = styled.div`
   max-width: 1400px;
   width: 100%;
   height: 100%;
-  align-items: center;
   padding: 0.5rem 0rem;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   gap: 3rem;
-  height: 100%;
+
   @media (max-width: 1024px) {
     padding: 2rem 0rem;
   }
@@ -68,13 +68,9 @@ const ContentWrapper = styled.div`
 const TeamSection = styled.div`
   display: flex;
   height: auto;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: column;
-    height: auto;
-  }
+  flex-wrap: wrap;
+
   @media (min-width: 1024px) {
-    flex-direction: row;
     height: 30rem;
   }
 `;
