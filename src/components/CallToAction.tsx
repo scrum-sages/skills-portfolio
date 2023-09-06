@@ -21,6 +21,7 @@ const Container = styled.div`
   width: 100%;
 
   h3 {
+    font-size: 1.5rem;
     font-weight: 400;
   }
 `;

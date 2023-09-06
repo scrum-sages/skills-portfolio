@@ -15,10 +15,9 @@ export default function HeroPattern() {
       [2, 1, 2, 1],
     ],
     md: [
-      [1, 2, 1, 2],
-      [2, 1, 2, 1],
-      [1, 2, 1, 2],
-      [2, 1, 2, 1],
+      [1, 2, 1, 2, 1, 2],
+      [2, 1, 2, 1, 2, 1],
+      [1, 2, 1, 2, 1, 2],
     ],
     sm: [
       [1, 2, 1, 2],
@@ -45,6 +44,7 @@ export default function HeroPattern() {
 
 const PatternContainer = styled.div`
   display: flex;
+  gap: 0.5rem;
   flex-direction: column;
   justify-content: space-between;
 
@@ -53,6 +53,7 @@ const PatternContainer = styled.div`
 
 const RowDiv = styled.div`
   display: flex;
+  gap: 0.5rem;
   justify-content: space-between;
 `;
 
@@ -112,8 +113,8 @@ function Icon({ invert }: StarProps) {
 const HeroSVG = styled.svg`
   path {
     stroke: black;
-    stroke-width: 5;
+    stroke-width: 5.5;
 
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
   }
 `;

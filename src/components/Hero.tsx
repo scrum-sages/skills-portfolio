@@ -24,14 +24,20 @@ const HeroContainer = styled.div`
   position: relative;
 
   height: clamp(20rem, 70vh, 100%);
-  width: clamp(20rem, 70%, 100%);
+  width: clamp(60rem, 70%, 100%);
   max-width: 1440px;
 
   display: flex;
+  justify-content: space-between;
   gap: 2rem;
 
-  margin: 4rem 1rem 1rem;
-  padding-bottom: 1rem;
+  margin-top: 55px;
+  padding: 1rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    height: calc(100% - 4.5rem);
+  }
 `;
 
 const HeroSection = styled.div`
@@ -49,11 +55,16 @@ const LeftSection = styled.div`
   justify-content: space-between;
 
   width: 61.8%;
+
+  @media (max-width: 1024px) {
+    flex: 2;
+    width: 100%;
+  }
 `;
 
 const Headline = styled.h1`
   font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 4rem;
+  font-size: clamp(2rem, 10vw, 4rem);
   font-weight: 400;
   margin: 0;
 `;
