@@ -93,7 +93,7 @@ const Container = styled.div`
   background-color: black;
   text-align: left;
   color: white;
-  height: calc(100vh - 4rem);
+  height: calc(100vh);
   min-height: 700px;
   @media (max-width: 1024px) {
     height: auto;
@@ -131,6 +131,7 @@ const TeamSection = styled.div`
   @media (min-width: 1024px) {
     flex-direction: row;
     height: 30rem;
+    padding-top: 8vh;
   }
 `;
 

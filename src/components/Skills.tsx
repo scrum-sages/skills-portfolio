@@ -22,7 +22,7 @@ import { SkillsData, data } from './data';
 
 const Background = styled.div`
   background: #eca579;
-  padding: 3rem 0rem;
+  padding: 1rem 0rem;
   display: flex;
   justify-content: center;
   width: 100%;

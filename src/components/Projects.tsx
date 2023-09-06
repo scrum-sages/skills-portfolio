@@ -47,7 +47,7 @@ const Container = styled.div`
   justify-content: center;
 
   @media (min-width: 1024px) {
-    height: calc(100vh - 15rem);
+    height: calc(100vh - 8vh);
     align-items: center;
     min-height: 800px;
   }
