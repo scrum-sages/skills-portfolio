@@ -100,7 +100,7 @@ const ProjectItemInner = styled.div`
     height: 16rem;
   }
   @media (min-width: 1224px) {
-    height: 14rem;
+    height: 13rem;
     background-color: pink;
   }
 `;
