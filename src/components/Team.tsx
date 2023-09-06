@@ -93,7 +93,7 @@ const Container = styled.div`
   background-color: black;
   text-align: left;
   color: white;
-  height: 100vh;
+  height: calc(100vh - 4rem);
   min-height: 700px;
   @media (max-width: 1024px) {
     height: auto;
@@ -109,7 +109,8 @@ const ContentWrapper = styled.div`
   gap: 0.8rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  gap: 3rem;
   height: 100%;
   @media (max-width: 1024px) {
     padding: 2rem 0rem;

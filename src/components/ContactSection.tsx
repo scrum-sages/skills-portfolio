@@ -39,7 +39,7 @@ const Contact = styled.section`
   background: black;
   justify-content: center;
   @media (min-width: 768px) {
-    height: 100vh;
+    height: calc(100vh);
     min-height: 44rem;
   }
 `;

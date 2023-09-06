@@ -47,7 +47,7 @@ const Container = styled.div`
   justify-content: center;
 
   @media (min-width: 1024px) {
-    height: calc(100vh - 5rem);
+    height: calc(100vh - 15rem);
     align-items: center;
     min-height: 800px;
   }
@@ -101,7 +101,6 @@ const ProjectItemInner = styled.div`
   }
   @media (min-width: 1224px) {
     height: 13rem;
-    background-color: pink;
   }
 `;
 
