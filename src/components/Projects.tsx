@@ -108,6 +108,7 @@ const Image = styled.img`
   width: 100%;
   &:hover {
     transform: scale(1.1);
+    transition: all 0.3s ease;
   }
 `;
 
