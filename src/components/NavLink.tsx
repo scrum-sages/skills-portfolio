@@ -14,26 +14,18 @@ const StyledNavLink = styled.span<StyledNavLinkProps>`
 interface NavLinkProps {
   $link: string;
   color: string;
-  navRef?: React.RefObject<HTMLDivElement>;
+  clickHandler: (link: string) => void;
 }
 
-export function NavLink({ $link, color, navRef }: NavLinkProps) {
-  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-    e.preventDefault();
-    if (navRef?.current) {
-      const offset = 4 * 16;
-      const elementPosition = navRef.current.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
-
+export function NavLink({ $link, color, clickHandler }: NavLinkProps) {
   return (
-    <StyledNavLink color={color} $link={$link} onClick={handleClick}>
+    <StyledNavLink
+      color={color}
+      $link={$link}
+      onClick={() => {
+        clickHandler($link);
+      }}
+    >
       {$link}
     </StyledNavLink>
   );

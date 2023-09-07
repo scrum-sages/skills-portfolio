@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Burger } from './Burger';
 import { HeaderLogo } from './HeaderLogo';
@@ -12,11 +13,14 @@ interface StyledHeaderProps {
 
 interface HeaderProps {
   navRefs: { [key: string]: React.RefObject<HTMLDivElement> };
+  isMainPage: boolean;
 }
 
-export function Header({ navRefs }: HeaderProps) {
+export function Header({ navRefs, isMainPage }: HeaderProps) {
   const [burgerClicked, setBurgerClicked] = useState(false);
   const [extendNavbar, setExtendNavbar] = useState(false);
+
+  const navigate = useNavigate();
 
   //** Ändra denna färg för att ändra färg på både header samt drawer samtidigt.*/
   const background = '#f0eee8';
@@ -42,6 +46,13 @@ export function Header({ navRefs }: HeaderProps) {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
+  const handleNavLinkClick = (link: string) => {
+    const thisRef = navRefs[link.toLowerCase()].current;
+    isMainPage
+      ? thisRef?.scrollIntoView({ behavior: 'smooth' })
+      : navigate(`/${link.toLowerCase()}`);
+  };
+
   return (
     <StyledHeader $expanded={burgerClicked} $background={background}>
       <HeaderContentWrapper>
@@ -52,7 +63,7 @@ export function Header({ navRefs }: HeaderProps) {
               key={index}
               $link={link}
               color={headerTextColor}
-              navRef={navRefs[link.toLowerCase()]}
+              clickHandler={handleNavLinkClick}
             />
           ))}
         </HeaderNavigationWrapper>
@@ -66,7 +77,7 @@ export function Header({ navRefs }: HeaderProps) {
                 key={index}
                 $link={link}
                 color={headerTextColor}
-                navRef={navRefs[link.toLowerCase()]}
+                clickHandler={handleNavLinkClick}
               />
             ))}
           </DrawerLinks>

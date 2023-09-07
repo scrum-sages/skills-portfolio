@@ -1,16 +1,17 @@
 import { gsap } from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import { ContactSection } from './components/ContactSection';
 import Footer from './components/Footer';
 import { Header } from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import ScrollControl from './components/ScrollControl';
 import Skills from './components/Skills';
 import Team from './components/Team';
-import { fadeIn, quickFade } from './components/animation';
 import TeamMemberDetail from './components/TeamDetailPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { fadeIn, quickFade } from './components/animation';
 
 function App() {
   const navRefs = {
@@ -34,16 +35,17 @@ function App() {
     <Router>
       <Routes>
         <Route
-          path='/'
+          path='/:section'
           element={
             <>
-              <Header navRefs={navRefs} />
+              <Header navRefs={navRefs} isMainPage={true} />
               <Hero contactRef={navRefs.contact} />
               <Team navRef={navRefs.team} />
               <Projects navRef={navRefs.projects} />
               <Skills navRef={navRefs.skills} />
               <ContactSection navRef={navRefs.contact} />
               <Footer navRefs={navRefs} />
+              <ScrollControl navRefs={navRefs} />
             </>
           }
         />
@@ -51,7 +53,7 @@ function App() {
           path='/team/:id'
           element={
             <>
-              <Header navRefs={navRefs} />
+              <Header navRefs={navRefs} isMainPage={false} />
               <TeamMemberDetail />
             </>
           }
