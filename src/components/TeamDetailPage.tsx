@@ -1,14 +1,32 @@
-import { styled } from 'styled-components';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { TeamMembers } from './TeamData';
+import { styled } from 'styled-components';
+import { icons } from './Skills';
+import { TeamData, TeamMembers } from './TeamData';
+import { SkillsData, data } from './data';
 
 function TeamMemberDetail() {
   const { id } = useParams();
 
-  const teamMember = TeamMembers.find(member => member.id === id);
+  const [teamMember, setTeamMember] = useState<TeamData | null | undefined>(null);
+  const [skillsOfMember, setSkillsOfMember] = useState<SkillsData[]>([]);
+
+  useEffect(() => {
+    const foundMember = TeamMembers.find(member => member.id === id);
+
+    setTeamMember(foundMember);
+
+    if (foundMember) {
+      document.title = `${foundMember.name}`; // Sets the document title to the details of the selected team member
+      const foundSkills = data.filter(skill => skill.experts.includes(foundMember.name));
+      setSkillsOfMember(foundSkills);
+    } else {
+      setSkillsOfMember([]);
+    }
+  }, [id]);
 
   if (!teamMember) {
-    return <div>Team member not found</div>;
+    return <div>Teammember not found</div>;
   }
 
   return (
@@ -16,7 +34,7 @@ function TeamMemberDetail() {
       <ContentWrapper>
         <Section>
           <Box>
-            <div>
+            <ImageContainer className='hejsan'>
               <ImageBox>
                 <ImageCircle />
                 <img
@@ -24,11 +42,11 @@ function TeamMemberDetail() {
                   src={teamMember.imageURL}
                 />
               </ImageBox>
-              <TextBox>
-                <H1>{teamMember.name}</H1>
-                <H2>{teamMember.title}</H2>
-              </TextBox>
-            </div>
+            </ImageContainer>
+            <TextBox>
+              <H1>{teamMember.name}</H1>
+              <H2>{teamMember.title}</H2>
+            </TextBox>
 
             <TextBox>
               <H3>CONTACT</H3>
@@ -49,9 +67,18 @@ function TeamMemberDetail() {
             </TextBox>
             <TextBox>
               <H3>SKILLS</H3>
-              <BasicText>Some skills here. </BasicText>
-              <BasicText>Some skills here. </BasicText>
-              <BasicText>Some skills here. </BasicText>
+              <SkillFlexBox>
+                {skillsOfMember.length ? (
+                  skillsOfMember.map((skill, index) => (
+                    <SkillBox key={index}>
+                      {icons[skill.icon]}
+                      <BasicText>{skill.title}</BasicText>
+                    </SkillBox>
+                  ))
+                ) : (
+                  <BasicText>No skills data available</BasicText>
+                )}
+              </SkillFlexBox>
             </TextBox>
           </Box>
         </Section>
@@ -59,6 +86,22 @@ function TeamMemberDetail() {
     </Container>
   );
 }
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
+`;
+
+const SkillFlexBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+`;
 
 const Container = styled.div`
   width: 100%;
@@ -85,6 +128,7 @@ const ContentWrapper = styled.div`
 
 const Section = styled.div`
   display: flex;
+  padding: 1.5rem;
   flex-direction: column;
   height: 100%;
 
@@ -100,8 +144,9 @@ const Box = styled.div`
   justify-content: space-between;
   flex-direction: column;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     width: 50%;
+    align-items: flex-start;
   }
 `;
 
@@ -122,7 +167,19 @@ const ImageCircle = styled.div`
   }
 `;
 
-const TextBox = styled.div``;
+const SkillBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const TextBox = styled.div`
+  text-align: center;
+  @media (min-width: 1024px) {
+    text-align: left;
+  }
+`;
 
 const H1 = styled.h1``;
 
