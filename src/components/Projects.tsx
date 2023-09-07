@@ -9,11 +9,11 @@ interface Props {
 function Projects({ navRef }: Props) {
   return (
     <Container ref={navRef}>
-      <ProjectWrapper>
+      <ProjectWrapper className='project-parent'>
         <SectionHeadline $color='black' title='PROJECTS'></SectionHeadline>
         <ProjectSection>
           {ProjectList.map((project, index) => (
-            <ProjectItem key={index}>
+            <ProjectItem key={index} className='project-child'>
               <Image src={project.imageURL} alt={project.title} />
               <ProjectItemInner>
                 <CardTitle>{project.title}</CardTitle>

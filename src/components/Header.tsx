@@ -38,10 +38,14 @@ export function Header({ navRefs }: HeaderProps) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <StyledHeader $expanded={burgerClicked} $background={background}>
       <HeaderContentWrapper>
-        <HeaderLogo />
+        <HeaderLogo onClick={scrollToTop} />
         <HeaderNavigationWrapper>
           {headerLinks.map((link, index) => (
             <NavLink
