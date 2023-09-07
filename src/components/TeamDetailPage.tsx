@@ -16,7 +16,7 @@ function TeamMemberDetail() {
       <ContentWrapper>
         <Section>
           <Box>
-            <AnotherBox>
+            <div>
               <ImageBox>
                 <ImageCircle />
                 <img
@@ -28,12 +28,18 @@ function TeamMemberDetail() {
                 <H1>{teamMember.name}</H1>
                 <H2>{teamMember.title}</H2>
               </TextBox>
-            </AnotherBox>
+            </div>
 
             <TextBox>
               <H3>CONTACT</H3>
-              <BasicText>Email: {teamMember.email} </BasicText>
-              <BasicText>Phone: {teamMember.phone} </BasicText>
+              <BasicText>
+                Email:
+                <ContactLink href={`mailto:${teamMember.email}`}> {teamMember.email}</ContactLink>
+              </BasicText>
+              <BasicText>
+                Phone:
+                <ContactLink href={`tel:${teamMember.phone}`}> {teamMember.phone}</ContactLink>
+              </BasicText>
             </TextBox>
           </Box>
           <Box>
@@ -59,7 +65,7 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #f0eee8;
-  height: calc(100vh - 4rem);
+  min-height: calc(100vh - 4rem);
   padding: 2rem 0;
 `;
 
@@ -93,8 +99,6 @@ const Box = styled.div`
   }
 `;
 
-const AnotherBox = styled.div``;
-
 const ImageBox = styled.div`
   position: relative;
   align-self: center;
@@ -106,6 +110,10 @@ const ImageCircle = styled.div`
   border: #eca579 1.4rem solid;
   height: 15rem;
   width: 15rem;
+  &:hover {
+    transition: 100ms ease-in;
+    background-color: #eca579;
+  }
 `;
 
 const TextBox = styled.div``;
@@ -121,6 +129,15 @@ const H3 = styled.h2``;
 const BasicText = styled.p`
   margin: 0;
   padding-bottom: 1rem;
+`;
+
+const ContactLink = styled.a`
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export default TeamMemberDetail;
