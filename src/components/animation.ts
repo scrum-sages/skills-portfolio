@@ -26,7 +26,7 @@ export function slowFade({ parent, child }: FadeInParams) {
   gsap.from(child, {
     y: -60, // Start position above the slide section
     opacity: 0, // Start with 0 opacity
-    duration: 1.2,
+    duration: 1.4,
     ease: "power1.out",
     scrollTrigger: {
       trigger: parent,
