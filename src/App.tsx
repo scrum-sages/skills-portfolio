@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { useLayoutEffect, useRef } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.css';
 import { ContactSection } from './components/ContactSection';
 import Footer from './components/Footer';
@@ -8,9 +9,8 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Team from './components/Team';
-import { fadeIn, quickFade } from './components/animation';
 import TeamMemberDetail from './components/TeamDetailPage';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { fadeIn, quickFade } from './components/animation';
 
 function App() {
   const navRefs = {
