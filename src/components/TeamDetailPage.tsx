@@ -65,8 +65,14 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #f0eee8;
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 3rem);
+  margin-top: 3rem;
   padding: 2rem 0;
+
+  @media (min-width: 1024px) {
+    min-height: calc(100vh - 4rem);
+    margin-top: 4rem;
+  }
 `;
 
 const ContentWrapper = styled.div`
