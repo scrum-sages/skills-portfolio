@@ -1,4 +1,5 @@
 export interface TeamData {
+  id: number;
   name: string;
   title: string;
   imageURL: string;
@@ -9,6 +10,7 @@ export interface TeamData {
 
 export const TeamMembers: TeamData[] = [
   {
+    id: 1,
     name: 'Jennifer Techel',
     title: 'Frontend Developer',
     imageURL: 'jennifer.svg',
@@ -17,6 +19,7 @@ export const TeamMembers: TeamData[] = [
     phone: '0762009010',
   },
   {
+    id: 2,
     name: 'Caisa Köhlin',
     title: 'Frontend Developer',
     imageURL: 'caisa.svg',
@@ -25,6 +28,7 @@ export const TeamMembers: TeamData[] = [
     phone: '0762009010',
   },
   {
+    id: 3,
     name: 'Nathanael Blackbourn',
     title: 'Frontend Developer',
     imageURL: 'nat.svg',
@@ -33,6 +37,7 @@ export const TeamMembers: TeamData[] = [
     phone: '0762009010',
   },
   {
+    id: 4,
     name: 'Mimmi Collin',
     title: 'Frontend Developer',
     imageURL: 'mimmi.svg',
