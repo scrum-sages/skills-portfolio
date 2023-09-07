@@ -1,6 +1,16 @@
 import { styled } from 'styled-components';
+import { useParams } from 'react-router-dom'; // Import useParams
+import { TeamMembers } from './TeamData';
 
 function TeamMemberDetail() {
+  const { id } = useParams();
+
+  const teamMember = TeamMembers.find(member => member.id === id);
+
+  if (!teamMember) {
+    return <div>Team member not found</div>;
+  }
+
   return (
     <Container>
       <ContentWrapper>
@@ -11,25 +21,25 @@ function TeamMemberDetail() {
                 <ImageCircle />
                 <img
                   style={{ position: 'absolute', top: '1rem', width: '16rem' }}
-                  src='jennifer.svg'
+                  src={teamMember.imageURL}
                 />
               </ImageBox>
               <TextBox>
-                <H1>Jennifer Techel</H1>
-                <H2>Frontend developer</H2>
+                <H1>{teamMember.name}</H1>
+                <H2>{teamMember.title}</H2>
               </TextBox>
             </AnotherBox>
 
             <TextBox>
               <H3>CONTACT</H3>
-              <BasicText>Email: jennifer@sage.com </BasicText>
-              <BasicText>Phone: 0762009010 </BasicText>
+              <BasicText>Email: {teamMember.email} </BasicText>
+              <BasicText>Phone: {teamMember.phone} </BasicText>
             </TextBox>
           </Box>
           <Box>
             <TextBox>
               <H3>ABOUT</H3>
-              <BasicText>Some skills here. </BasicText>
+              <BasicText>{teamMember.bio}</BasicText>
             </TextBox>
             <TextBox>
               <H3>SKILLS</H3>
