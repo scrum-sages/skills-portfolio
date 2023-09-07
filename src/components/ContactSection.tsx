@@ -1,8 +1,12 @@
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styled from 'styled-components';
 import Address from './Address';
 import { ContactForm } from './Form';
 import Map from './Map';
 import { SectionHeadline } from './SectionHeadline';
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -11,8 +15,8 @@ interface Props {
 export function ContactSection({ navRef }: Props) {
   return (
     <Contact ref={navRef}>
-      <ContactWrapper>
-        <ContactBoxSection>
+      <ContactWrapper className='parent'>
+        <ContactBoxSection className='animate-text'>
           <SectionHeadline $color='white' title='FIND US'></SectionHeadline>
           <ContactSectionWrapper>
             <Address></Address>
@@ -21,7 +25,7 @@ export function ContactSection({ navRef }: Props) {
             </MapWrapper>
           </ContactSectionWrapper>
         </ContactBoxSection>
-        <ContactBoxSection>
+        <ContactBoxSection className='animate-text'>
           <SectionHeadline $color='white' title='TALK TO US'></SectionHeadline>
           <ContactSectionWrapper>
             <ContactForm></ContactForm>

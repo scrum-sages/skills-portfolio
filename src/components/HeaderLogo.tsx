@@ -1,10 +1,14 @@
 import styled from 'styled-components';
 import logoSvg from '../assets/HeaderLogo.svg'; // Update the path to your SVG file
 
-export function HeaderLogo() {
+interface LogoProps {
+  onClick?: () => void;
+}
+
+export function HeaderLogo(props: LogoProps) {
   return (
     <LogoWrapper>
-      <LogoImage src={logoSvg} alt='Scrum Sages Logo' />
+      <LogoImage src={logoSvg} alt='Scrum Sages Logo' onClick={props.onClick} />
     </LogoWrapper>
   );
 }
@@ -15,6 +19,7 @@ const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 
 const LogoImage = styled.img`

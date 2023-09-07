@@ -184,13 +184,14 @@ export default function Skills({ navRef }: Props) {
 
   return (
     <Background ref={navRef}>
-      <ContentWrapper>
+      <ContentWrapper className='skill-parent'>
         <SectionHeadline $color='black' title='SKILLS'></SectionHeadline>
         {!selectedSkill ? (
           <>
             <Flex>
               {displayData.map((item, index) => (
                 <Card
+                  className='skill-child'
                   key={index}
                   onClick={() => {
                     setSelectedSkill(item);
