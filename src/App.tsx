@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import { Header } from './components/Header';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
+import ScrollControl from './components/ScrollControl';
 import Skills from './components/Skills';
 import Team from './components/Team';
 import TeamMemberDetail from './components/TeamDetailPage';
@@ -37,21 +38,37 @@ function App() {
           path='/'
           element={
             <>
-              <Header navRefs={navRefs} />
+              <Header navRefs={navRefs} isMainPage={true} />
               <Hero contactRef={navRefs.contact} />
               <Team navRef={navRefs.team} />
               <Projects navRef={navRefs.projects} />
               <Skills navRef={navRefs.skills} />
               <ContactSection navRef={navRefs.contact} />
               <Footer navRefs={navRefs} />
+              <ScrollControl navRefs={navRefs} />
             </>
           }
         />
         <Route
-          path='/team/:id'
+          path='/:section'
           element={
             <>
-              <Header navRefs={navRefs} />
+              <Header navRefs={navRefs} isMainPage={true} />
+              <Hero contactRef={navRefs.contact} />
+              <Team navRef={navRefs.team} />
+              <Projects navRef={navRefs.projects} />
+              <Skills navRef={navRefs.skills} />
+              <ContactSection navRef={navRefs.contact} />
+              <Footer navRefs={navRefs} />
+              <ScrollControl navRefs={navRefs} />
+            </>
+          }
+        />
+        <Route
+          path='/teammember/:id'
+          element={
+            <>
+              <Header navRefs={navRefs} isMainPage={false} />
               <TeamMemberDetail />
             </>
           }

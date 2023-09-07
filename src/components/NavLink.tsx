@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface StyledNavLinkProps {
@@ -18,22 +19,20 @@ interface NavLinkProps {
 }
 
 export function NavLink({ $link, color, navRef }: NavLinkProps) {
-  const handleClick = (e: React.MouseEvent<HTMLSpanElement>) => {
-    e.preventDefault();
-    if (navRef?.current) {
-      const offset = 4 * 16;
-      const elementPosition = navRef.current.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
-    <StyledNavLink color={color} $link={$link} onClick={handleClick}>
+    <StyledNavLink
+      color={color}
+      $link={$link}
+      onClick={() => {
+        if (!navRef) return;
+        location.pathname.includes('/teammember/')
+          ? navigate(`/${$link.toLowerCase()}`)
+          : navRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }}
+    >
       {$link}
     </StyledNavLink>
   );

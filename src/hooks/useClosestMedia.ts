@@ -18,7 +18,6 @@ export default function useClosestMedia(): string {
   const [closest, setClosest] = useState<string>(findClosest());
 
   useEffect(() => {
-    console.log(closest);
     const handler = () => {
       setClosest(findClosest());
     };
