@@ -35,6 +35,21 @@ function App() {
     <Router>
       <Routes>
         <Route
+          path='/'
+          element={
+            <>
+              <Header navRefs={navRefs} isMainPage={true} />
+              <Hero contactRef={navRefs.contact} />
+              <Team navRef={navRefs.team} />
+              <Projects navRef={navRefs.projects} />
+              <Skills navRef={navRefs.skills} />
+              <ContactSection navRef={navRefs.contact} />
+              <Footer navRefs={navRefs} />
+              <ScrollControl navRefs={navRefs} />
+            </>
+          }
+        />
+        <Route
           path='/:section'
           element={
             <>
@@ -50,7 +65,7 @@ function App() {
           }
         />
         <Route
-          path='/team/:id'
+          path='/teammember/:id'
           element={
             <>
               <Header navRefs={navRefs} isMainPage={false} />

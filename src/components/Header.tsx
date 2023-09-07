@@ -46,24 +46,21 @@ export function Header({ navRefs, isMainPage }: HeaderProps) {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
-  const handleNavLinkClick = (link: string) => {
-    const thisRef = navRefs[link.toLowerCase()].current;
-    isMainPage
-      ? thisRef?.scrollIntoView({ behavior: 'smooth' })
-      : navigate(`/${link.toLowerCase()}`);
-  };
-
   return (
     <StyledHeader $expanded={burgerClicked} $background={background}>
       <HeaderContentWrapper>
-        <HeaderLogo onClick={scrollToTop} />
+        <HeaderLogo
+          onClick={() => {
+            isMainPage ? scrollToTop() : navigate('/');
+          }}
+        />
         <HeaderNavigationWrapper>
           {headerLinks.map((link, index) => (
             <NavLink
               key={index}
               $link={link}
               color={headerTextColor}
-              clickHandler={handleNavLinkClick}
+              navRef={navRefs[link.toLowerCase()]}
             />
           ))}
         </HeaderNavigationWrapper>
@@ -77,7 +74,7 @@ export function Header({ navRefs, isMainPage }: HeaderProps) {
                 key={index}
                 $link={link}
                 color={headerTextColor}
-                clickHandler={handleNavLinkClick}
+                navRef={navRefs[link.toLowerCase()]}
               />
             ))}
           </DrawerLinks>

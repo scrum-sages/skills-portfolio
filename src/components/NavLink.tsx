@@ -1,3 +1,4 @@
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface StyledNavLinkProps {
@@ -14,16 +15,22 @@ const StyledNavLink = styled.span<StyledNavLinkProps>`
 interface NavLinkProps {
   $link: string;
   color: string;
-  clickHandler: (link: string) => void;
+  navRef?: React.RefObject<HTMLDivElement>;
 }
 
-export function NavLink({ $link, color, clickHandler }: NavLinkProps) {
+export function NavLink({ $link, color, navRef }: NavLinkProps) {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   return (
     <StyledNavLink
       color={color}
       $link={$link}
       onClick={() => {
-        clickHandler($link);
+        if (!navRef) return;
+        location.pathname.includes('/teammember/')
+          ? navigate(`/${$link.toLowerCase()}`)
+          : navRef.current?.scrollIntoView({ behavior: 'smooth' });
       }}
     >
       {$link}

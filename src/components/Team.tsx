@@ -1,11 +1,11 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { SectionHeadline } from './SectionHeadline';
 import { TeamMembers } from './TeamData';
 
 gsap.registerPlugin(ScrollTrigger);
-import { Link } from 'react-router-dom';
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -19,7 +19,10 @@ function Team({ navRef }: Props) {
         <TeamSection className='team-parent'>
           {TeamMembers.map((team, index) => (
             <TeamMemberBox key={index} className='team-child'>
-              <Link to={`/team/${team.id}`} style={{ color: 'white', textDecoration: 'none' }}>
+              <Link
+                to={`/teammember/${team.id}`}
+                style={{ color: 'white', textDecoration: 'none' }}
+              >
                 <ImageBox>
                   <ImageCircle />
                   <img

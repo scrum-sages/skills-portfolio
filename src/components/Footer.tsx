@@ -66,6 +66,8 @@ const LogoContainer = styled.div`
   @media (min-width: 768px) {
     width: 30%;
   }
+
+  cursor: pointer;
 `;
 
 const LogoImage = styled.img`
@@ -110,7 +112,11 @@ const Footer = ({ navRefs }: FooterProps) => {
     <FooterWrapper>
       <Container>
         <FirstSection>
-          <LogoContainer>
+          <LogoContainer
+            onClick={() => {
+              window.scroll({ top: 0, behavior: 'smooth' });
+            }}
+          >
             <LogoImage src={logoSvg} alt='Scrum Sages Logo' />
           </LogoContainer>
           <LinkContainer>
