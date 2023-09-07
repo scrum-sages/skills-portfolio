@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { useParams } from 'react-router-dom'; // Import useParams
+import { useParams } from 'react-router-dom';
 import { TeamMembers } from './TeamData';
 
 function TeamMemberDetail() {
@@ -59,8 +59,8 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #f0eee8;
-  height: calc(100vh);
-  padding: 2rem 0 2rem 0;
+  height: calc(100vh - 4rem);
+  padding: 2rem 0;
 `;
 
 const ContentWrapper = styled.div`
