@@ -9,6 +9,8 @@ import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Team from './components/Team';
 import { fadeIn, quickFade } from './components/animation';
+import TeamMemberDetail from './components/TeamDetailPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   const navRefs = {
@@ -29,15 +31,33 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Header navRefs={navRefs} />
-      <Hero contactRef={navRefs.contact} />
-      <Team navRef={navRefs.team} />
-      <Projects navRef={navRefs.projects} />
-      <Skills navRef={navRefs.skills} />
-      <ContactSection navRef={navRefs.contact} />
-      <Footer navRefs={navRefs} />
-    </>
+    <Router>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <>
+              <Header navRefs={navRefs} />
+              <Hero contactRef={navRefs.contact} />
+              <Team navRef={navRefs.team} />
+              <Projects navRef={navRefs.projects} />
+              <Skills navRef={navRefs.skills} />
+              <ContactSection navRef={navRefs.contact} />
+              <Footer navRefs={navRefs} />
+            </>
+          }
+        />
+        <Route
+          path='/team/:id'
+          element={
+            <>
+              <Header navRefs={navRefs} />
+              <TeamMemberDetail />
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

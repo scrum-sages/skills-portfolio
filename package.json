@@ -16,6 +16,7 @@
     "gsap": "file:gsap-bonus.tgz",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0",
     "styled-components": "^6.0.7",
     "yup": "^1.2.0"
   },
