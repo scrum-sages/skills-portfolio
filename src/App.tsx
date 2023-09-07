@@ -8,7 +8,7 @@ import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Team from './components/Team';
-import { fadeIn, slowFade } from './components/animation';
+import { fadeIn, quickFade } from './components/animation';
 
 function App() {
   const navRefs = {
@@ -23,7 +23,7 @@ function App() {
       fadeIn({ parent: '.parent', child: '.animate-text' });
       fadeIn({ parent: '.project-parent', child: '.project-child' });
       fadeIn({ parent: '.team-parent', child: '.team-child' });
-      slowFade({ parent: '.skill-parent', child: '.skill-child' });
+      quickFade({ parent: '.skill-parent', child: '.skill-child' });
     });
     return () => ctx.revert();
   }, []);
