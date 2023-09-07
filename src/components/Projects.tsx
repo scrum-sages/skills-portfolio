@@ -9,7 +9,7 @@ interface Props {
 function Projects({ navRef }: Props) {
   return (
     <Container ref={navRef}>
-      <ContactWrapper className='project-parent'>
+      <ProjectWrapper className='project-parent'>
         <SectionHeadline $color='black' title='PROJECTS'></SectionHeadline>
         <ProjectSection>
           {ProjectList.map((project, index) => (
@@ -25,7 +25,7 @@ function Projects({ navRef }: Props) {
             </ProjectItem>
           ))}
         </ProjectSection>
-      </ContactWrapper>
+      </ProjectWrapper>
     </Container>
   );
 }
@@ -52,13 +52,14 @@ const Container = styled.div`
     min-height: 800px;
   }
 `;
-const ContactWrapper = styled.div`
-  max-width: 1400px;
+const ProjectWrapper = styled.div`
+  max-width: 1440px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
   height: 100%;
+
   @media (min-width: 1024px) {
     padding-top: 2rem;
   }
@@ -68,23 +69,18 @@ const ProjectSection = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-start;
-  @media (min-width: 1024px) {
-  }
 `;
 
 const ProjectItem = styled.div`
   width: 100%;
   height: 100%;
   padding: 1rem;
-  flex-direction: column;
-  justify-content: space-between;
 
   @media (min-width: 768px) {
     width: 50%;
   }
   @media (min-width: 1024px) {
-    width: 24%;
+    width: 25%;
   }
 `;
 

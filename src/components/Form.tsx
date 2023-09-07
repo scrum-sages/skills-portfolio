@@ -38,7 +38,7 @@ export function ContactForm() {
             <span>Name: *</span>
             <ErrorMessage name='name' component='div' />
           </InputLabel>
-          <Field as={InputElement} type='text' id='name' name='name' autoFocus />
+          <Field as={InputElement} type='text' id='name' name='name' />
         </InputFieldWrapper>
         <InputFieldWrapper>
           <InputLabel htmlFor='email'>
