@@ -1,6 +1,6 @@
-import React, { useRef, useEffect } from 'react';
-import styled from 'styled-components';
 import { IconX } from '@tabler/icons-react';
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
 import { icons } from './Skills';
 
 const DetailsWrapper = styled.div`
@@ -38,11 +38,11 @@ const ExpertsWrapper = styled.div`
 `;
 
 const ExpertsText = styled.p`
-    margin: 0;
+  margin: 0;
 `;
 
 const ExpertsTitle = styled.p`
-    margin-top: 1rem;
+  margin-top: 1rem;
 `;
 
 const Text = styled.p`
@@ -87,20 +87,20 @@ const SkillsDetails: React.FC<Props> = ({ data, onBack }) => {
   return (
     <DetailsWrapper ref={wrapperRef}>
       <Wrapper>
-      <IconWrapper>{icons[data.icon]}</IconWrapper>
-      <BackButton onClick={onBack}>
-        <IconX size={40} />
-      </BackButton>
+        <IconWrapper>{icons[data.icon]}</IconWrapper>
+        <BackButton onClick={onBack}>
+          <IconX size={40} />
+        </BackButton>
       </Wrapper>
       <h2>{data.title}</h2>
       <ResponsiveWrapper>
-      <Text>{data.details}</Text>
-      <ExpertsWrapper>
-      <ExpertsTitle>Our experts</ExpertsTitle>
-      {data.experts.map((expert, index) => ( 
-        <ExpertsText key={index}>{expert}</ExpertsText>
-      ))}
-      </ExpertsWrapper>
+        <Text>{data.details}</Text>
+        <ExpertsWrapper>
+          <ExpertsTitle>Our experts</ExpertsTitle>
+          {data.experts.map((expert, index) => (
+            <ExpertsText key={index}>{expert}</ExpertsText>
+          ))}
+        </ExpertsWrapper>
       </ResponsiveWrapper>
     </DetailsWrapper>
   );
