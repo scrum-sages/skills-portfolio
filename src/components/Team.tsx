@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { SectionHeadline } from './SectionHeadline';
 import { TeamMembers } from './TeamData';
+import { Link } from 'react-router-dom';
 
 interface Props {
   navRef: React.RefObject<HTMLDivElement>;
@@ -14,17 +15,19 @@ function Team({ navRef }: Props) {
         <TeamSection>
           {TeamMembers.map((team, index) => (
             <TeamMemberBox key={index}>
-              <ImageBox>
-                <ImageCircle />
-                <img
-                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
-                  src={team.imageURL}
-                />
-              </ImageBox>
-              <Heading>{team.name}</Heading>
-              <BasicText>{team.bio}</BasicText>
-              <MonoText>{team.title}</MonoText>
-              <MonoText>{team.email}</MonoText>
+              <Link to={`/team/${team.id}`} style={{ color: 'white', textDecoration: 'none' }}>
+                <ImageBox>
+                  <ImageCircle />
+                  <img
+                    style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
+                    src={team.imageURL}
+                  />
+                </ImageBox>
+                <Heading>{team.name}</Heading>
+                <BasicText>{team.bio}</BasicText>
+                <MonoText>{team.title}</MonoText>
+                <MonoText>{team.email}</MonoText>
+              </Link>
             </TeamMemberBox>
           ))}
         </TeamSection>
