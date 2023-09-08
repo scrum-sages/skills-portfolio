@@ -43,7 +43,6 @@ const Contact = styled.section`
   background: black;
   justify-content: center;
   @media (min-width: 768px) {
-    height: calc(100vh - 4vh);
     min-height: 44rem;
   }
 `;
@@ -54,8 +53,7 @@ const ContactWrapper = styled.div`
   gap: 1rem;
   align-items: center;
   width: 100%;
-  height: 100%;
-  padding: 2rem 1rem;
+  padding: 0 0.6rem;
   @media (min-width: 768px) {
     flex-direction: row;
     gap: 2rem;
@@ -65,11 +63,10 @@ const ContactWrapper = styled.div`
 const ContactBoxSection = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  height: 30rem;
-  @media (min-width: 768px) {
-    height: 38rem;
-  }
+  min-height: 15rem;
+  height: 90vh;
 `;
 
 const MapWrapper = styled.div`
@@ -84,8 +81,8 @@ const ContactSectionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
+  padding-bottom: 64px;
   justify-content: space-between;
-  height: 100%;
   @media (min-width: 768px) {
     padding-top: 2rem;
   }

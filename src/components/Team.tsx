@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { SectionHeadline } from './SectionHeadline';
 import { TeamMembers } from './TeamData';
@@ -12,29 +12,32 @@ interface Props {
 }
 
 function Team({ navRef }: Props) {
+  const navigate = useNavigate();
+
   return (
     <Container ref={navRef}>
       <ContentWrapper>
         <SectionHeadline $color='white' title='MEET THE TEAM'></SectionHeadline>
         <TeamSection className='team-parent'>
           {TeamMembers.map((team, index) => (
-            <TeamMemberBox key={index} className='team-child'>
-              <Link
-                to={`/teammember/${team.id}`}
-                style={{ color: 'white', textDecoration: 'none' }}
-              >
-                <ImageBox>
-                  <ImageCircle />
-                  <img
-                    style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
-                    src={team.imageURL}
-                  />
-                </ImageBox>
-                <Heading>{team.name}</Heading>
-                <BasicText>{team.bio}</BasicText>
-                <MonoText>{team.title}</MonoText>
-                <MonoText>{team.email}</MonoText>
-              </Link>
+            <TeamMemberBox
+              key={index}
+              className='team-child'
+              onClick={() => {
+                navigate(`/teammember/${team.id}`);
+              }}
+            >
+              <ImageBox>
+                <ImageCircle />
+                <img
+                  style={{ position: 'absolute', top: '2rem', left: '1rem', width: '12.7rem' }}
+                  src={team.imageURL}
+                />
+              </ImageBox>
+              <Heading>{team.name}</Heading>
+              <BasicText>{team.bio}</BasicText>
+              <MonoText>{team.title}</MonoText>
+              <MonoText>{team.email}</MonoText>
             </TeamMemberBox>
           ))}
         </TeamSection>
@@ -100,8 +103,10 @@ const TeamMemberBox = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: right;
+  align-items: center;
   width: 100%;
+
+  cursor: pointer;
 
   @media (min-width: 768px) {
     height: auto;
