@@ -27,10 +27,6 @@ function Team({ navRef }: Props) {
                 navigate(`/teammember/${team.id}`);
               }}
             >
-              {/* <Link
-                to={`/teammember/${team.id}`}
-                style={{ color: 'white', textDecoration: 'none' }}
-              > */}
               <ImageBox>
                 <ImageCircle />
                 <img
@@ -42,7 +38,6 @@ function Team({ navRef }: Props) {
               <BasicText>{team.bio}</BasicText>
               <MonoText>{team.title}</MonoText>
               <MonoText>{team.email}</MonoText>
-              {/* </Link> */}
             </TeamMemberBox>
           ))}
         </TeamSection>
