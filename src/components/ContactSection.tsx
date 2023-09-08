@@ -37,7 +37,6 @@ export function ContactSection({ navRef }: Props) {
 }
 
 const Contact = styled.section`
-  height: auto;
   width: 100%;
   display: flex;
   background: black;
@@ -65,7 +64,7 @@ const ContactBoxSection = styled.section`
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  min-height: 15rem;
+  min-height: 50rem;
   height: 90vh;
 `;
 
